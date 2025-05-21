@@ -575,40 +575,10 @@
 
         <div class="max-w-xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-6 text-deep-navy">Get Early Access</h2>
-
             <div class="mx-auto max-w-xl">
                 <iframe data-tally-src="https://tally.so/embed/mRl8R9?dynamicHeight=1" loading="lazy" width="100%"
                     height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Get Early Access"></iframe>
             </div>
-
-            <!-- <form class="bg-off-white shadow rounded-xl px-8 py-8 flex flex-col gap-4" action="/signup" method="POST"
-            onsubmit="event.preventDefault(); showSuccess();">
-            <label for="email" class="font-semibold">Email address</label>
-            <input id="email" name="email" type="email" required placeholder="you@email.com"
-                class="border border-mist-blue rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-soft-teal" />
-
-            <div class="flex space-x-4">
-                <label class="flex items-center space-x-2 cursor-pointer">
-                    <input type="radio" name="type" value="Investor" checked class="modern-radio" />
-                    <span class="text-deep-navy">Investor</span>
-                </label>
-                <label class="flex items-center space-x-2 cursor-pointer">
-                    <input type="radio" name="type" value="Seller" class="modern-radio" />
-                    <span class="text-deep-navy">Seller</span>
-                </label>
-            </div>
-            
-            <button type="submit"
-                    class="bg-deep-navy hover:bg-soft-teal text-white font-semibold rounded-lg py-3 mt-2 transition">
-              Join Waitlist
-            </button>
-
-
-            <div id="successToast"
-                class="hidden mt-4 bg-soft-navy/20 border border-soft-navy text-green-800 rounded-lg px-4 py-3 text-center font-semibold">
-                🎉 Thanks! You're on the waitlist.
-            </div>
-        </form> -->
         </div>
     </section>
 
@@ -720,12 +690,6 @@
                 <a href="#" class="hover:underline text-deep-navy">Terms</a>
                 <a href="#" class="hover:underline ml-4 text-deep-navy">Privacy</a>
             </div>
-            <div class="flex space-x-5">
-                <a href="#" aria-label="Twitter" class="hover:text-deep-navy"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn" class="hover:text-deep-navy"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#" aria-label="Instagram" class="hover:text-deep-navy"><i
-                        class="fa-brands fa-instagram"></i></a>
-            </div>
             <div class="text-xs text-right">&copy; 2025 Income Waves. All rights reserved.</div>
         </div>
     </footer>
@@ -800,7 +764,6 @@
       `).join('');
         }
 
-
         // Initial render (default: Investor)
         renderBadges(true);
 
@@ -829,7 +792,6 @@
 
             renderBadges(isInvestor);
         }
-
 
         function setHowTab(tab) {
             window.dispatchEvent(new CustomEvent('toggleTab', { detail: tab }));
