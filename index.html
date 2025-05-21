@@ -15,7 +15,7 @@
             theme: {
                 extend: {
                     colors: {
-                        'deep-navy': '#00667F',
+                        'deep-navy': '#0A1C47',
                         'soft-teal': '#6BAF80',
                         'mist-blue': '#B3E0DA',
                         'off-white': '#F7F7F7'
@@ -52,7 +52,7 @@
             appearance: none;
             -webkit-appearance: none;
             background-color: #fff;
-            border: 2px solid #00667F;
+            border: 2px solid #0A1C47;
             width: 20px;
             height: 20px;
             border-radius: 9999px;
@@ -66,7 +66,7 @@
         }
 
         input[type="radio"].modern-radio:checked {
-            border: 2px solid #00667F;
+            border: 2px solid #0A1C47;
         }
 
         input[type="radio"].modern-radio:checked::before {
@@ -77,13 +77,13 @@
             left: 50%;
             width: 10px;
             height: 10px;
-            background: #00667F;
+            background: #0A1C47;
             border-radius: 50%;
             transform: translate(-50%, -50%);
         }
 
         input[type="radio"].modern-radio:focus {
-            box-shadow: 0 0 0 2px #00667F;
+            box-shadow: 0 0 0 2px #0A1C47;
         }
 
         summary::-webkit-details-marker {
@@ -147,7 +147,7 @@
  🎯 Hero Section
 ====================================================== -->
     <section id="hero"
-        class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy via-mist-blue to-off-white overflow-hidden flex flex-col items-center md:justify-center">
+        class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy from-10% via-[#1e3c6e] via-30% via-[#3A7A96] via-60% to-mist-blue to-90% overflow-hidden flex flex-col items-center md:justify-center">
 
         <!-- Decorative radial highlight behind content -->
         <div class="relative z-10 max-w-5xl px-4 text-center space-y-6 mt-2 md:mt-0 py-12 md:py-8">
@@ -185,7 +185,7 @@
                 </defs>
 
                 <!-- Deep-navy top path -->
-                <path fill="#00667F" fill-opacity="1"
+                <path fill="#0A1C47" fill-opacity="1"
                     d="M0,96L60,133.3C120,171,240,245,360,261.3C480,277,600,235,720,181.3C840,128,960,64,1080,64C1200,64,1320,128,1380,160L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
 
                 <!-- Off-white bottom path (extends Why Trust Us color) -->
@@ -766,9 +766,11 @@
             const heroBadges = document.getElementById('heroBadges');
             heroBadges.innerHTML = badges.map(badge => `
         <div class="flex flex-col items-center text-center">
-          <i class="${badge.icon} text-3xl text-deep-navy mb-2"></i>
-          <span class="font-semibold text-deep-navy">${badge.title}</span>
-          <span class="text-sm text-deep-navy/70 mt-1">${badge.desc}</span>
+          <div class="flex items-center justify-center w-12 h-12 bg-white rounded-full mb-2 shadow-md">
+            <i class="${badge.icon} text-2xl text-deep-navy"></i>
+          </div>
+          <span class="font-semibold text-white">${badge.title}</span>
+          <span class="text-sm text-white mt-1">${badge.desc}</span>
         </div>
       `).join('');
         }
