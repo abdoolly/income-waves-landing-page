@@ -8,8 +8,6 @@
     <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -574,10 +572,17 @@
     <section id="signup" class="py-20 bg-mist-blue">
 
         <div class="max-w-xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6 text-deep-navy">Get Early Access</h2>
-            <div class="mx-auto max-w-xl">
+            <h2 class="text-3xl font-bold text-center text-deep-navy">Get Early Access</h2>
+            <div class="mx-auto max-w-xl relative">
+                <div id="spinner"
+                    class="absolute inset-0 flex items-center justify-center bg-mist-blue/50 backdrop-blur-sm z-10">
+                    <div class="animate-spin rounded-full h-12 w-12 border-4 border-deep-navy border-t-transparent">
+                    </div>
+                </div>
                 <iframe data-tally-src="https://tally.so/embed/mRl8R9?dynamicHeight=1" loading="lazy" width="100%"
-                    height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Get Early Access"></iframe>
+                    height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Get Early Access"
+                    onload="onLoadTallyIframe();">
+                </iframe>
             </div>
         </div>
     </section>
@@ -828,6 +833,12 @@
 
         document.addEventListener('scroll', fadeInOnScroll);
         document.addEventListener('DOMContentLoaded', fadeInOnScroll);
+
+
+        function onLoadTallyIframe() {
+            console.log('onLoadTallyIframe');
+            document.getElementById('spinner').style.display = 'none';
+        }
     </script>
     <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
 
