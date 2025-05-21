@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Income Waves – Seller-Backed Investing</title>
+    <title>Income Waves – Passive Amazon Business Investing</title>
 
     <style>
         body {
@@ -123,10 +123,9 @@
 
             <!-- Primary links -->
             <ul class="hidden md:flex space-x-6 text-sm font-bold text-deep-navy">
-                <li><a href="#hero" class="hover:text-soft-teal">Home</a></li>
                 <li><a href="#how" class="hover:text-soft-teal">How It Works</a></li>
                 <li><a href="#trust" class="hover:text-soft-teal">Why Trust Us</a></li>
-                <li><a href="#compare" class="hover:text-soft-teal">Compare</a></li>
+                <li><a href="#compare" class="hover:text-soft-teal">Why Income Waves</a></li>
                 <li><a href="#faq" class="hover:text-soft-teal">FAQ</a></li>
             </ul>
 
@@ -137,7 +136,7 @@
                     Investor
                 </button>
                 <button id="sellerBtn"
-                    class="px-3 py-1 rounded-full text-sm font-bold bg-off-white text-deep-navy transition-colors">
+                    class="px-3 py-1 rounded-full text-sm font-bold bg-white text-deep-navy transition-colors">
                     Seller
                 </button>
             </div>
@@ -148,10 +147,10 @@
  🎯 Hero Section
 ====================================================== -->
     <section id="hero"
-        class="relative h-screen bg-gradient-to-b from-deep-navy via-mist-blue to-off-white overflow-hidden flex flex-col items-center justify-center justify-center">
+        class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy via-mist-blue to-off-white overflow-hidden flex flex-col items-center md:justify-center">
 
         <!-- Decorative radial highlight behind content -->
-        <div class="relative z-10 max-w-5xl px-4 text-center space-y-6">
+        <div class="relative z-10 max-w-5xl px-4 text-center space-y-6 mt-2 md:mt-0 py-12 md:py-8">
             <h1 id="heroHeadline" class="text-4xl md:text-5xl font-extrabold text-off-white leading-tight">
                 Earn effortless income from thriving Amazon-powered businesses.
             </h1>
@@ -172,10 +171,10 @@
             </div>
         </div>
 
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none transform -translate-y-10"
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none transform translate-y-3 md:translate-y-0"
             aria-hidden="true">
 
-            <svg class="block w-full h-32 md:h-48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+            <svg class="block w-full h-32 md:h-64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 viewBox="0 0 1440 320">
                 <defs>
                     <!-- Soft upward shadow -->
@@ -218,17 +217,23 @@
                   window.addEventListener('toggleTab', e => {
                     tab = e.detail;
                   });
+                  // Initialize tab based on URL parameter
+                  const urlParams = new URLSearchParams(window.location.search);
+                  const view = urlParams.get('view');
+                  if (view === 'seller') {
+                    tab = 'seller';
+                  }
                 " id="howToggle" class="mb-10">
                 <div class="flex justify-center mb-8">
                     <button class="px-6 py-2 rounded-l-full font-semibold text-base transition
             focus:outline-none"
-                        :class="tab === 'investor' ? 'bg-deep-navy text-white shadow' : 'bg-off-white text-deep-navy'"
+                        :class="tab === 'investor' ? 'bg-deep-navy text-white shadow' : 'bg-white text-deep-navy'"
                         @click="setTab('investor')">
                         For Investors
                     </button>
                     <button class="px-6 py-2 rounded-r-full font-semibold text-base transition
             focus:outline-none"
-                        :class="tab === 'seller' ? 'bg-deep-navy text-white shadow' : 'bg-off-white text-deep-navy'"
+                        :class="tab === 'seller' ? 'bg-deep-navy text-white shadow' : 'bg-white text-deep-navy'"
                         @click="setTab('seller')">
                         For Sellers
                     </button>
@@ -387,56 +392,11 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <!-- ======================================================
- 🤝 Why Trust Us
+ ⚖️ Why Income Waves Section
 ====================================================== -->
-    <section id="trust" class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-deep-navy text-center mb-12">Why Trust Us</h2>
-
-            <div class="grid gap-8 sm:grid-cols-3">
-                <!-- Card 1 -->
-                <div
-                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
-                    <i class="fa-solid fa-shield-halved text-4xl text-deep-navy mb-4"></i>
-                    <h3 class="font-semibold mb-2 text-deep-navy">Seller Verification</h3>
-                    <p class="text-sm text-deep-navy/70">
-                        Every merchant passes identity and store-performance checks before listing.
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div
-                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
-                    <i class="fa-solid fa-box-open text-4xl text-deep-navy mb-4"></i>
-                    <h3 class="font-semibold mb-2 text-deep-navy">Inventory Confirmed</h3>
-                    <p class="text-sm text-deep-navy/70">
-                        Funds flow only after Amazon confirms items received into FBA (Fulfillment by Amazon)
-                        warehouses.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div
-                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
-                    <i class="fa-solid fa-file-lines text-4xl text-deep-navy mb-4"></i>
-                    <h3 class="font-semibold mb-2 text-deep-navy">Monthly Insight</h3>
-                    <p class="text-sm text-deep-navy/70">
-                        Simple updates show units sold, profits shared, and your growing returns.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- ======================================================
- ⚖️ Comparison Section
-====================================================== -->
-    <section id="compare" class="py-20 bg-off-white">
+    <section id="compare" class="py-20">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-10 text-deep-navy">Why Seller-Backed Investing Beats the
-                Ordinary</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 text-deep-navy">The Smarter Way to Invest</h2>
             <div class="grid gap-6 md:grid-cols-2">
                 <!-- Normal Investments -->
                 <div class="bg-off-white rounded-2xl shadow p-8 flex flex-col gap-6 border border-mist-blue">
@@ -549,6 +509,50 @@
             </div>
         </div>
     </section>
+
+    <!-- ======================================================
+ 🤝 Why Trust Us
+====================================================== -->
+    <section id="trust" class="py-20 bg-off-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-deep-navy text-center mb-12">Why Trust Us</h2>
+
+            <div class="grid gap-8 sm:grid-cols-3">
+                <!-- Card 1 -->
+                <div
+                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
+                    <i class="fa-solid fa-shield-halved text-4xl text-deep-navy mb-4"></i>
+                    <h3 class="font-semibold mb-2 text-deep-navy">Seller Verification</h3>
+                    <p class="text-sm text-deep-navy/70">
+                        Every merchant passes identity and store-performance checks before listing.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
+                    <i class="fa-solid fa-box-open text-4xl text-deep-navy mb-4"></i>
+                    <h3 class="font-semibold mb-2 text-deep-navy">Inventory Confirmed</h3>
+                    <p class="text-sm text-deep-navy/70">
+                        Funds flow only after Amazon confirms items received into FBA (Fulfillment by Amazon)
+                        warehouses.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform">
+                    <i class="fa-solid fa-file-lines text-4xl text-deep-navy mb-4"></i>
+                    <h3 class="font-semibold mb-2 text-deep-navy">Monthly Insight</h3>
+                    <p class="text-sm text-deep-navy/70">
+                        Simple updates show units sold, profits shared, and your growing returns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- ======================================================
  🛡️ Risk & Safety Note
@@ -769,20 +773,17 @@
       `).join('');
         }
 
-        // Initial render (default: Investor)
-        renderBadges(true);
-
         function updateView(view) {
             const isInvestor = view === 'investor';
 
             /* Button styles */
             investorBtn.classList.toggle('bg-deep-navy', isInvestor);
-            investorBtn.classList.toggle('bg-off-white', !isInvestor);
+            investorBtn.classList.toggle('bg-white', !isInvestor);
             investorBtn.classList.toggle('text-white', isInvestor);
             investorBtn.classList.toggle('text-deep-navy', !isInvestor);
 
             sellerBtn.classList.toggle('bg-deep-navy', !isInvestor);
-            sellerBtn.classList.toggle('bg-off-white', isInvestor);
+            sellerBtn.classList.toggle('bg-white', isInvestor);
             sellerBtn.classList.toggle('text-white', !isInvestor);
             sellerBtn.classList.toggle('text-deep-navy', isInvestor);
 
@@ -807,11 +808,31 @@
         investorBtn.addEventListener('click', () => {
             updateView('investor');
             setHowTab('investor');
+            // Update URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('view', 'investor');
+            window.history.pushState({}, '', url);
         });
         sellerBtn.addEventListener('click', () => {
             updateView('seller');
             setHowTab('seller');
+            // Update URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('view', 'seller');
+            window.history.pushState({}, '', url);
         });
+
+        // Get initial view from URL parameter
+        function getInitialView() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const view = urlParams.get('view');
+            return view === 'seller' ? 'seller' : 'investor'; // Default to 'investor' if not 'seller'
+        }
+
+        // Set initial view based on URL parameter
+        const initialView = getInitialView();
+        updateView(initialView);
+        setHowTab(initialView);
 
         // ——— Show form success toast ———
         function showSuccess() {
