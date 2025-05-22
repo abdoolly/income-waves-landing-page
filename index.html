@@ -555,7 +555,7 @@
         <div class="grid gap-6 md:grid-cols-2">
           <!-- Normal Investments -->
           <div
-            class="bg-off-white rounded-2xl shadow p-8 flex flex-col gap-6 border border-mist-blue"
+            class="bg-off-white rounded-2xl shadow p-8 flex flex-col gap-6 border border-gray-200"
           >
             <div class="flex items-center gap-3 mb-4">
               <i class="fa-solid fa-piggy-bank text-3xl text-deep-navy/50"></i>
@@ -710,7 +710,7 @@
 
         <div class="mt-12 flex justify-center">
           <h4
-            class="w-full text-center text-xl md:text-2xl font-bold tracking-wide mt-12 bg-clip-text text-transparent bg-gradient-to-r from-deep-navy to-soft-teal"
+            class="w-full text-center text-xl md:text-2xl font-bold tracking-wide mt-12 text-deep-navy/80"
           >
             Income Waves lets you earn like a successful Amazon seller — without
             running a store.
@@ -851,7 +851,7 @@
         <!-- Category Pills -->
         <div class="flex flex-wrap gap-2 mb-8 justify-center">
           <button
-            class="faq-category active px-4 py-2 rounded-full bg-deep-navy text-white text-sm font-medium transition-colors"
+            class="faq-category active px-4 py-2 rounded-full bg-gray-200 text-deep-navy text-sm font-medium transition-colors"
             data-category="all"
           >
             All Questions
@@ -1026,15 +1026,15 @@
           </details>
         </div>
 
-        <!-- Back to Top Button -->
+        <!-- Join Waitlist Button -->
         <div class="flex justify-center mt-12">
-          <button
-            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          <a
+            href="#signup"
             class="flex items-center gap-2 px-6 py-3 rounded-full bg-deep-navy text-white font-medium hover:bg-deep-navy/90 transition-colors"
           >
             <i class="fa-solid fa-arrow-up"></i>
-            Back to Top
-          </button>
+            Join Waitlist
+          </a>
         </div>
       </div>
     </section>
@@ -1162,7 +1162,7 @@
           heroHeadline.textContent =
             "Earn effortless income from thriving Amazon-powered businesses.";
           heroSub.textContent =
-            "Invest in carefully vetted sellers and share their success—no store-running required.";
+            "Invest in carefully vetted sellers and share their success – no running your own store required.";
         } else {
           heroHeadline.textContent =
             "Fuel your next big Amazon order—grow faster with smart funding.";
@@ -1283,10 +1283,9 @@
             // Update active state
             categoryButtons.forEach((btn) => {
               btn.classList.toggle("active", btn === this);
-              btn.classList.toggle("bg-deep-navy", btn === this);
-              btn.classList.toggle("text-white", btn === this);
+              btn.classList.toggle("bg-gray-200", btn === this);
               btn.classList.toggle("bg-white", btn !== this);
-              btn.classList.toggle("text-deep-navy", btn !== this);
+              btn.classList.toggle("text-deep-navy", true);
             });
 
             // Filter items
