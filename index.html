@@ -145,27 +145,31 @@
 
         <!-- Primary links -->
         <ul class="hidden md:flex space-x-6 text-sm font-bold text-deep-navy">
-          <li><a href="#how" class="hover:text-soft-teal">How It Works</a></li>
           <li>
-            <a href="#trust" class="hover:text-soft-teal">Why Trust Us</a>
+            <a href="#how" class="hover:text-deep-navy/70">How It Works</a>
           </li>
           <li>
-            <a href="#compare" class="hover:text-soft-teal">Why Income Waves</a>
+            <a href="#compare" class="hover:text-deep-navy/70"
+              >Why Income Waves</a
+            >
           </li>
-          <li><a href="#faq" class="hover:text-soft-teal">FAQ</a></li>
+          <li>
+            <a href="#trust" class="hover:text-deep-navy/70">Why Trust Us</a>
+          </li>
+          <li><a href="#faq" class="hover:text-deep-navy/70">FAQ</a></li>
         </ul>
 
         <!-- Investor / Seller toggle -->
         <div class="flex items-center space-x-2">
           <button
             id="investorBtn"
-            class="px-3 py-1 rounded-full text-sm font-bold bg-deep-navy text-white transition-colors"
+            class="px-6 py-2 rounded-lg text-sm font-bold bg-deep-navy text-white transition-colors"
           >
             Investor
           </button>
           <button
             id="sellerBtn"
-            class="px-3 py-1 rounded-full text-sm font-bold bg-white text-deep-navy transition-colors"
+            class="px-6 py-2 rounded-lg text-sm font-bold bg-gray-200 text-deep-navy transition-colors"
           >
             Seller
           </button>
@@ -1048,12 +1052,12 @@
 
         /* Button styles */
         investorBtn.classList.toggle("bg-deep-navy", isInvestor);
-        investorBtn.classList.toggle("bg-white", !isInvestor);
+        investorBtn.classList.toggle("bg-gray-200", !isInvestor);
         investorBtn.classList.toggle("text-white", isInvestor);
         investorBtn.classList.toggle("text-deep-navy", !isInvestor);
 
         sellerBtn.classList.toggle("bg-deep-navy", !isInvestor);
-        sellerBtn.classList.toggle("bg-white", isInvestor);
+        sellerBtn.classList.toggle("bg-gray-200", isInvestor);
         sellerBtn.classList.toggle("text-white", !isInvestor);
         sellerBtn.classList.toggle("text-deep-navy", isInvestor);
 
