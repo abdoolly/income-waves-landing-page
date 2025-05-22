@@ -829,49 +829,123 @@
 ====================================================== -->
     <section id="faq" class="py-20 bg-off-white">
       <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-deep-navy">FAQ</h2>
-        <div class="space-y-6">
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-deep-navy">
+          Frequently Asked Questions
+        </h2>
+
+        <!-- Search Bar -->
+        <div class="relative mb-8">
+          <input
+            type="text"
+            id="faqSearch"
+            placeholder="Search FAQs..."
+            class="w-full px-4 py-3 rounded-lg border-2 border-deep-navy/20 focus:border-deep-navy focus:outline-none transition-colors"
+          />
+          <i
+            class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-deep-navy/50"
+          ></i>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="flex flex-wrap gap-2 mb-8 justify-center">
+          <button
+            class="faq-category active px-4 py-2 rounded-full bg-deep-navy text-white text-sm font-medium transition-colors"
+            data-category="all"
+          >
+            All Questions
+          </button>
+          <button
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            data-category="investing"
+          >
+            Investing
+          </button>
+          <button
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            data-category="process"
+          >
+            Process
+          </button>
+          <button
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            data-category="fees"
+          >
+            Fees & Payments
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Investing Category -->
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="investing"
+          >
             <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
             >
               <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+              ></i>
+              How do I pick a seller or plan?
+            </summary>
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+              Each seller presents their Amazon store plan with sales history,
+              product details, and expected profits. You can browse and choose
+              based on your preferences and risk appetite.
+            </div>
+          </details>
+
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="investing"
+          >
+            <summary
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+            >
+              <i
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+              ></i>
+              What are typical Amazon seller margins?
+            </summary>
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+              Amazon sellers often operate on 20–35% margins. Your share depends
+              on the plan, minus a small platform payout fee.
+            </div>
+          </details>
+
+          <!-- Process Category -->
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="process"
+          >
+            <summary
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+            >
+              <i
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
               ></i>
               How is inventory verified?
             </summary>
-
-            <p class="mt-2 text-sm text-deep-navy/70">
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
               Amazon's FBA (Fulfillment by Amazon) system marks the inventory as
               "received" before any funds are released to the seller. This keeps
               the process safe for investors and transparent for all.
-            </p>
+            </div>
           </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
+
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="process"
+          >
             <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
             >
               <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
-              ></i>
-              When do I get paid?
-            </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
-              Investors typically receive monthly payouts once sales begin. Full
-              principal and profit share are paid after the seller's sales cycle
-              completes.
-            </p>
-          </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
-            <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
-            >
-              <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
               ></i>
               Can I exit early?
             </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
               You can request to exit (liquidate) at two key stages:
               <br />
               <strong>1. Before funds are released to the seller:</strong> You
@@ -883,71 +957,82 @@
                 released):</strong
               >
               You can request to exit, but your payout will be processed after
-              the current sales cycle completes. <br />
+              the current sales cycle completes.
+              <br />
               <span class="text-deep-navy font-semibold"
                 >Sales cycles typically last 2–6 months, but the exact duration
                 follows each seller's plan.</span
               >
-            </p>
+            </div>
           </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
+
+          <!-- Fees & Payments Category -->
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="fees"
+          >
             <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
             >
               <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+              ></i>
+              When do I get paid?
+            </summary>
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+              Investors typically receive monthly payouts once sales begin. Full
+              principal and profit share are paid after the seller's sales cycle
+              completes.
+            </div>
+          </details>
+
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="fees"
+          >
+            <summary
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+            >
+              <i
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
               ></i>
               What fees apply?
             </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
               A small payout fee is taken from each investor payout. There's
               also a one-time deposit fee to cover payment provider costs.
-            </p>
+            </div>
           </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
+
+          <details
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            data-category="investing"
+          >
             <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
+              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
             >
               <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
               ></i>
               Is this Shariah-compliant?
             </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
+            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
               The platform is being developed with Shariah-compliance in mind.
               Investments avoid interest (riba), and profit sharing follows a
               partnership model.
-            </p>
+            </div>
           </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
-            <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
-            >
-              <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
-              ></i>
-              How do I pick a seller or plan?
-            </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
-              Each seller presents their Amazon store plan with sales history,
-              product details, and expected profits. You can browse and choose
-              based on your preferences and risk appetite.
-            </p>
-          </details>
-          <details class="fade-start group border-l-4 border-deep-navy pl-4">
-            <summary
-              class="relative pl-6 cursor-pointer font-semibold text-deep-navy"
-            >
-              <i
-                class="fa-solid fa-chevron-right absolute left-0 top-1 text-deep-navy transition-transform group-open:rotate-90"
-              ></i>
-              What are typical Amazon seller margins?
-            </summary>
-            <p class="mt-2 text-sm text-deep-navy/70">
-              Amazon sellers often operate on 20–35% margins. Your share depends
-              on the plan, minus a small platform payout fee.
-            </p>
-          </details>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="flex justify-center mt-12">
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="flex items-center gap-2 px-6 py-3 rounded-full bg-deep-navy text-white font-medium hover:bg-deep-navy/90 transition-colors"
+          >
+            <i class="fa-solid fa-arrow-up"></i>
+            Back to Top
+          </button>
         </div>
       </div>
     </section>
@@ -1155,6 +1240,71 @@
         var s = d.createElement("script");
         (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
       }
+    </script>
+    <script>
+      // FAQ Search and Filter Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("faqSearch");
+        const faqItems = document.querySelectorAll("details");
+        const categoryButtons = document.querySelectorAll(".faq-category");
+
+        // Search functionality
+        searchInput.addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+
+          faqItems.forEach((item) => {
+            const question = item
+              .querySelector("summary")
+              .textContent.toLowerCase();
+            const answer = item.querySelector("div").textContent.toLowerCase();
+            const matches =
+              question.includes(searchTerm) || answer.includes(searchTerm);
+
+            item.style.display = matches ? "block" : "none";
+          });
+        });
+
+        // Category filter functionality
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const category = this.dataset.category;
+
+            // Update active state
+            categoryButtons.forEach((btn) => {
+              btn.classList.toggle("active", btn === this);
+              btn.classList.toggle("bg-deep-navy", btn === this);
+              btn.classList.toggle("text-white", btn === this);
+              btn.classList.toggle("bg-white", btn !== this);
+              btn.classList.toggle("text-deep-navy", btn !== this);
+            });
+
+            // Filter items
+            faqItems.forEach((item) => {
+              if (category === "all") {
+                item.style.display = "block";
+              } else {
+                item.style.display =
+                  item.dataset.category === category ? "block" : "none";
+              }
+            });
+          });
+        });
+
+        // Auto-expand FAQ items when they're the only visible ones
+        function autoExpandVisibleItems() {
+          const visibleItems = Array.from(faqItems).filter(
+            (item) => item.style.display !== "none"
+          );
+          if (visibleItems.length === 1) {
+            visibleItems[0].setAttribute("open", "");
+          }
+        }
+
+        searchInput.addEventListener("input", autoExpandVisibleItems);
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", autoExpandVisibleItems);
+        });
+      });
     </script>
   </body>
 </html>
