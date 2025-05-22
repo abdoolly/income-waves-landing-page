@@ -300,7 +300,9 @@
           id="howToggle"
           class="mb-10"
         >
-          <div class="flex justify-center mb-8">
+          <div
+            class="flex justify-center mb-8 shadow-lg w-fit mx-auto overflow-hidden rounded-full"
+          >
             <button
               class="px-6 py-2 rounded-l-full font-semibold text-base transition focus:outline-none"
               :class="tab === 'investor' ? 'bg-deep-navy text-white shadow' : 'bg-white text-deep-navy'"
@@ -1045,7 +1047,16 @@
         class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-slate-500 text-sm"
       >
         <div class="flex items-center space-x-3">
-          <span class="font-semibold text-deep-navy text-lg">Income Waves</span>
+          <div class="flex items-center space-x-2">
+            <img
+              src="/images/logo-navy-rounded.png"
+              alt="Income Waves Logo"
+              class="w-12 h-12"
+            />
+            <span class="font-semibold text-deep-navy text-lg"
+              >Income Waves</span
+            >
+          </div>
           <span class="hidden md:inline text-deep-navy">|</span>
           <a href="#" class="hover:underline text-deep-navy">Terms</a>
           <a href="#" class="hover:underline ml-4 text-deep-navy">Privacy</a>
