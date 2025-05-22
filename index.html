@@ -841,7 +841,7 @@
             type="text"
             id="faqSearch"
             placeholder="Search FAQs..."
-            class="w-full px-4 py-3 rounded-lg border-2 border-deep-navy/20 focus:border-deep-navy focus:outline-none transition-colors"
+            class="w-full px-4 py-3 rounded-lg border-2 border-deep-navy/20 focus:border-deep-navy focus:outline-none transition-colors shadow-sm"
           />
           <i
             class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-deep-navy/50"
@@ -849,48 +849,48 @@
         </div>
 
         <!-- Category Pills -->
-        <div class="flex flex-wrap gap-2 mb-8 justify-center">
+        <div class="flex flex-wrap gap-2 mb-12 justify-center">
           <button
-            class="faq-category active px-4 py-2 rounded-full bg-gray-200 text-deep-navy text-sm font-medium transition-colors"
+            class="faq-category active px-4 py-2 rounded-full bg-gray-200 text-deep-navy text-sm font-medium transition-colors shadow-sm"
             data-category="all"
           >
             All Questions
           </button>
           <button
-            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
             data-category="investing"
           >
             Investing
           </button>
           <button
-            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
             data-category="process"
           >
             Process
           </button>
           <button
-            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors"
+            class="faq-category px-4 py-2 rounded-full bg-white text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
             data-category="fees"
           >
             Fees & Payments
           </button>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-3">
           <!-- Investing Category -->
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="investing"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               How do I pick a seller or plan?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               Each seller presents their Amazon store plan with sales history,
               product details, and expected profits. You can browse and choose
               based on your preferences and risk appetite.
@@ -898,18 +898,18 @@
           </details>
 
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="investing"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               What are typical Amazon seller margins?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               Amazon sellers often operate on 20–35% margins. Your share depends
               on the plan, minus a small platform payout fee.
             </div>
@@ -917,18 +917,18 @@
 
           <!-- Process Category -->
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="process"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               How is inventory verified?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               Amazon's FBA (Fulfillment by Amazon) system marks the inventory as
               "received" before any funds are released to the seller. This keeps
               the process safe for investors and transparent for all.
@@ -936,18 +936,18 @@
           </details>
 
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="process"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               Can I exit early?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               You can request to exit (liquidate) at two key stages:
               <br />
               <strong>1. Before funds are released to the seller:</strong> You
@@ -970,18 +970,18 @@
 
           <!-- Fees & Payments Category -->
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="fees"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               When do I get paid?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               Investors typically receive monthly payouts once sales begin. Full
               principal and profit share are paid after the seller's sales cycle
               completes.
@@ -989,36 +989,36 @@
           </details>
 
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="fees"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               What fees apply?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               A small payout fee is taken from each investor payout. There's
               also a one-time deposit fee to cover payment provider costs.
             </div>
           </details>
 
           <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50"
+            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
             data-category="investing"
           >
             <summary
-              class="relative pr-8 cursor-pointer font-semibold text-deep-navy py-3"
+              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
             >
               <i
-                class="fa-solid fa-chevron-right absolute right-0 top-1/2 -translate-y-1/2 text-deep-navy transition-transform group-open:rotate-90"
+                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
               ></i>
               Is this Shariah-compliant?
             </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pl-6 pb-3">
+            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
               The platform is being developed with Shariah-compliance in mind.
               Investments avoid interest (riba), and profit sharing follows a
               partnership model.
@@ -1030,7 +1030,7 @@
         <div class="flex justify-center mt-12">
           <a
             href="#signup"
-            class="flex items-center gap-2 px-6 py-3 rounded-full bg-deep-navy text-white font-medium hover:bg-deep-navy/90 transition-colors"
+            class="flex items-center gap-2 px-6 py-3 rounded-full bg-deep-navy text-white font-medium hover:bg-deep-navy/90 transition-colors shadow-md hover:shadow-lg"
           >
             <i class="fa-solid fa-arrow-up"></i>
             Join Waitlist
