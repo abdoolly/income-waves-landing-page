@@ -19,6 +19,11 @@
   },
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
+  "editor.rulers": [
+    120
+  ],
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 120,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -43,7 +48,7 @@
   "prettier.singleQuote": true,
   "prettier.semi": true,
   "prettier.trailingComma": "es5",
-  "prettier.printWidth": 100,
+  "prettier.printWidth": 120,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.bracketSpacing": true,

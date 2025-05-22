@@ -1,0 +1,8 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:abdoolly/income-waves-landing-page.git",
+  "author": "Abdallah Gamal <abdoolly@gmail.com>",
+  "license": "MIT"
+}
