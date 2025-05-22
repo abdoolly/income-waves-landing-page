@@ -4,6 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Dynamic Meta Tags for Social Sharing -->
+    <meta
+      id="metaTitle"
+      property="og:title"
+      content="Income Waves – Invest in Amazon sellers and earn without running a store"
+    />
+    <meta
+      id="metaDescription"
+      property="og:description"
+      content="Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100."
+    />
+    <meta
+      property="og:image"
+      content="https://ik.imagekit.io/incomewaves/Screenshot%202025-05-23%20at%202.29.08%E2%80%AFAM.png?updatedAt=1747953402623"
+    />
+    <meta property="og:url" content="" />
+    <!-- Will be set via JavaScript -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Income Waves" />
+
+    <!-- Twitter Card data -->
+    <meta
+      id="twitterTitle"
+      name="twitter:title"
+      content="Income Waves – Invest in Amazon sellers and earn without running a store"
+    />
+    <meta
+      id="twitterDescription"
+      name="twitter:description"
+      content="Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100."
+    />
+    <meta
+      property="twitter:image"
+      content="https://ik.imagekit.io/incomewaves/Screenshot%202025-05-23%20at%202.29.08%E2%80%AFAM.png?updatedAt=1747953402623"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Google Fonts: Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
@@ -35,7 +72,9 @@
       referrerpolicy="no-referrer"
     />
 
-    <title>Income Waves – Passive Amazon Business Investing</title>
+    <title id="pageTitle">
+      Income Waves – Invest in Amazon sellers and earn without running a store
+    </title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <style>
@@ -1379,24 +1418,6 @@
 
       window.updateView = updateView; // expose for Alpine to call
 
-      investorBtn.addEventListener('click', () => {
-        updateView('investor');
-        setHowTab('investor');
-        // Update URL without reloading the page
-        const url = new URL(window.location);
-        url.searchParams.set('view', 'investor');
-        window.history.pushState({}, '', url);
-      });
-      sellerBtn.addEventListener('click', () => {
-        updateView('seller');
-        setHowTab('seller');
-        // Update URL without reloading the page
-        const url = new URL(window.location);
-        url.searchParams.set('view', 'seller');
-        window.history.pushState({}, '', url);
-      });
-
-      // Get initial view from URL parameter
       function getInitialView() {
         const urlParams = new URLSearchParams(window.location.search);
         const view = urlParams.get('view');
@@ -1407,6 +1428,69 @@
       const initialView = getInitialView();
       updateView(initialView);
       setHowTab(initialView);
+
+      // ——— Update metadata based on view ———
+      function updateMetadata(view) {
+        const isInvestor = view === 'investor';
+        const metaTitle = document.getElementById('metaTitle');
+        const metaDescription = document.getElementById('metaDescription');
+        const twitterTitle = document.getElementById('twitterTitle');
+        const twitterDescription =
+          document.getElementById('twitterDescription');
+        const pageTitle = document.getElementById('pageTitle');
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+
+        // Set the current URL with the view parameter
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('view', view);
+        ogUrl.setAttribute('content', currentUrl.toString());
+
+        if (isInvestor) {
+          const title =
+            'Income Waves – Invest in Amazon sellers and earn without running a store.';
+          const description =
+            'Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100.';
+
+          metaTitle.setAttribute('content', title);
+          metaDescription.setAttribute('content', description);
+          twitterTitle.setAttribute('content', title);
+          twitterDescription.setAttribute('content', description);
+          pageTitle.textContent = title;
+        } else {
+          const title = 'Income Waves – Amazon Seller Funding Without Loans';
+          const description =
+            'Scale your Amazon business 2-5X faster without debt—funds released as soon as Amazon receives your inventory.';
+
+          metaTitle.setAttribute('content', title);
+          metaDescription.setAttribute('content', description);
+          twitterTitle.setAttribute('content', title);
+          twitterDescription.setAttribute('content', description);
+          pageTitle.textContent = title;
+        }
+      }
+
+      // Update metadata on page load
+      updateMetadata(initialView);
+
+      // Update metadata when view changes
+      investorBtn.addEventListener('click', () => {
+        updateView('investor');
+        setHowTab('investor');
+        updateMetadata('investor');
+        // Update URL without reloading the page
+        const url = new URL(window.location);
+        url.searchParams.set('view', 'investor');
+        window.history.pushState({}, '', url);
+      });
+      sellerBtn.addEventListener('click', () => {
+        updateView('seller');
+        setHowTab('seller');
+        updateMetadata('seller');
+        // Update URL without reloading the page
+        const url = new URL(window.location);
+        url.searchParams.set('view', 'seller');
+        window.history.pushState({}, '', url);
+      });
 
       // ——— Show form success toast ———
       function showSuccess() {
