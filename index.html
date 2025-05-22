@@ -166,15 +166,14 @@
  🎯 Hero Section
 ====================================================== -->
 	<section id="hero"
-		class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy from-10% via-[#1e3c6e] via-30% via-[#3A7A96] via-60% to-mist-blue to-90% overflow-hidden flex flex-col items-center md:justify-center">
+		class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy from-10% via-[#1e3c6e] via-30% via-[#3A7A96] via-60% to-[#8AADA7] md:to-mist-blue to-90% overflow-hidden flex flex-col items-center md:justify-center">
 		<!-- Decorative radial highlight behind content -->
 		<div class="relative z-10 max-w-5xl px-4 text-center space-y-6 mt-2 md:mt-0 py-12 md:py-8">
-			<h1 id="heroHeadline" class="text-4xl md:text-5xl font-extrabold text-off-white leading-tight">
-				Earn effortless income from thriving Amazon-powered businesses.
+			<h1 id="heroHeadline" class="text-4xl md:text-5xl font-extrabold text-off-white" style="line-height: 1.2 !important;">
+				Invest in Amazon sellers and earn without running a store.
 			</h1>
 			<p id="heroSub" class="max-w-xl mx-auto text-lg font-semibold text-off-white">
-				Invest in carefully vetted sellers and share their success—no
-				store-running required.
+				Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100.
 			</p>
 			<a href="#signup"
 				class="inline-block px-8 py-3 rounded-full bg-deep-navy hover:bg-deep-navy/70 text-white font-semibold shadow-md transition">
@@ -492,10 +491,10 @@
 				<!-- Seller Investments (Income Waves) -->
 				<div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col gap-6 border-2 border-deep-navy">
 					<div class="flex items-center gap-2 mb-4">
-						<i class="fa-brands fa-amazon text-3xl text-deep-navy"></i>
+						<img src="/images/logo-navy-rounded.png" alt="Income Waves Logo" class="w-10 h-10" />
 						<!-- Replace parentheses with an em-dash -->
 						<span class="font-semibold text-xl text-deep-navy">
-							Seller Investments — Income Waves
+							Amazon Powered Returns
 						</span>
 						<!-- Navy pill, tighter padding, baseline aligned -->
 						<span
@@ -643,8 +642,8 @@
 		<!-- Common footer -->
 		<div class="mt-7 flex justify-center px-4">
 			<h4 class="w-full text-center text-xl md:text-2xl font-bold tracking-wide text-deep-navy/80">
-				Income Waves lets you earn like a successful Amazon seller — without
-				running a store.
+				Invest in carefully vetted sellers and share their success—no
+				store-running required.
 			</h4>
 		</div>
 	</section>
@@ -1019,14 +1018,14 @@
 			/* Dynamic copy */
 			if (isInvestor) {
 				heroHeadline.textContent =
-					"Earn effortless income from thriving Amazon-powered businesses.";
+					"Invest in Amazon sellers and earn without running a store.";
 				heroSub.textContent =
-					"Invest in carefully vetted sellers and share their success – no running your own store required.";
+					"Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100.";
 			} else {
 				heroHeadline.textContent =
-					"Fuel your next big Amazon order—grow faster with smart funding.";
+					"Get inventory funding with no loans, credit checks, or equity—just sales.";
 				heroSub.textContent =
-					"Submit your plan, ship to FBA, and unlock funding to grow your business.";
+					"Scale your Amazon business 2-5X faster without debt—funds released as soon as Amazon receives your inventory.";
 			}
 
 			renderBadges(isInvestor);
