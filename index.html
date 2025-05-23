@@ -1214,6 +1214,7 @@
         updateView('investor');
         setHowTab('investor');
         updateMetadata('investor');
+        window.updateFaqs('investor');
         // Update URL without reloading the page
         const url = new URL(window.location);
         url.searchParams.set('view', 'investor');
@@ -1223,6 +1224,7 @@
         updateView('seller');
         setHowTab('seller');
         updateMetadata('seller');
+        window.updateFaqs('seller');
         // Update URL without reloading the page
         const url = new URL(window.location);
         url.searchParams.set('view', 'seller');
@@ -1274,140 +1276,148 @@
     <script type="module">
       import { investorFaqs, sellerFaqs } from './faqs.js';
 
-      let currentFaqs = sellerFaqs;
+      // FAQ Management System
+      class FAQManager {
+        constructor() {
+          this.currentView = getInitialView();
+          this.currentFaqs = this.currentView === 'investor' ? investorFaqs : sellerFaqs;
+          this.searchTerm = '';
+          this.activeCategory = 'all';
+        }
 
-      // Function to get unique categories from FAQs
-      function getUniqueCategories(faqs) {
-        return ['all', ...new Set(faqs.map(faq => faq.category))];
-      }
+        // Get unique categories from current FAQs
+        getUniqueCategories() {
+          return ['all', ...new Set(this.currentFaqs.map(faq => faq.category))];
+        }
 
-      // Function to render category filters
-      function renderCategoryFilters(categories) {
-        const filterContainer = document.querySelector(
-          '.flex.flex-wrap.gap-2.mb-12.justify-center'
-        );
-        filterContainer.innerHTML = categories
-          .map(
-            category => `
-          <button
-            class="faq-category ${
-              category === 'all' ? 'active bg-gray-200' : 'bg-white'
-            } px-4 py-2 rounded-full text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
-            data-category="${category}"
-          >
-            ${
-              category === 'all'
-                ? 'All Questions'
-                : category.charAt(0).toUpperCase() + category.slice(1)
-            }
-          </button>
-        `
-          )
-          .join('');
+        // Filter FAQs based on search term and category
+        getFilteredFaqs() {
+          return this.currentFaqs.filter(faq => {
+            const matchesSearch =
+              this.searchTerm === '' ||
+              faq.question.toLowerCase().includes(this.searchTerm) ||
+              faq.answer.toLowerCase().includes(this.searchTerm);
 
-        // Reattach event listeners to new buttons
-        attachCategoryFilterListeners();
-      }
+            const matchesCategory =
+              this.activeCategory === 'all' || faq.category === this.activeCategory;
 
-      // Function to attach category filter event listeners
-      function attachCategoryFilterListeners() {
-        const categoryButtons = document.querySelectorAll('.faq-category');
-        const faqItems = document.querySelectorAll('details');
-
-        categoryButtons.forEach(button => {
-          button.addEventListener('click', function () {
-            const category = this.dataset.category;
-
-            // Update active state
-            categoryButtons.forEach(btn => {
-              btn.classList.toggle('active', btn === this);
-              btn.classList.toggle('bg-gray-200', btn === this);
-              btn.classList.toggle('bg-white', btn !== this);
-              btn.classList.toggle('text-deep-navy', true);
-            });
-
-            // Filter items
-            faqItems.forEach(item => {
-              if (category === 'all') {
-                item.style.display = 'block';
-              } else {
-                item.style.display = item.dataset.category === category ? 'block' : 'none';
-              }
-            });
-
-            // Auto-expand if only one item is visible
-            autoExpandVisibleItems();
+            return matchesSearch && matchesCategory;
           });
-        });
-      }
+        }
 
-      // Function to render FAQs
-      function renderFAQs() {
-        const faqContainer = document.getElementById('faqContainer');
-        faqContainer.innerHTML = currentFaqs
-          .map(
-            faq => `
-          <details
-            class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
-            data-category="${faq.category}"
-          >
-            <summary
-              class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
-            >
-              <i
-                class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
-              ></i>
-              ${faq.question}
-            </summary>
-            <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
-              ${faq.answer}
-            </div>
-          </details>
-        `
-          )
-          .join('');
+        // Update the view and re-render
+        updateView(view) {
+          this.currentView = view;
+          this.currentFaqs = view === 'investor' ? investorFaqs : sellerFaqs;
+          this.render();
+        }
 
-        // Update category filters based on current FAQs
-        const categories = getUniqueCategories(currentFaqs);
-        renderCategoryFilters(categories);
-      }
+        // Update search term and re-render
+        updateSearch(term) {
+          this.searchTerm = term.toLowerCase();
+          this.render();
+        }
 
-      // Function to auto-expand visible items
-      function autoExpandVisibleItems() {
-        const faqItems = document.querySelectorAll('details');
-        const visibleItems = Array.from(faqItems).filter(item => item.style.display !== 'none');
-        if (visibleItems.length === 1) {
-          visibleItems[0].setAttribute('open', '');
+        // Update active category and re-render
+        updateCategory(category) {
+          this.activeCategory = category;
+          this.render();
+        }
+
+        // Render FAQ items
+        renderFAQItems() {
+          const faqContainer = document.getElementById('faqContainer');
+          const filteredFaqs = this.getFilteredFaqs();
+
+          faqContainer.innerHTML = filteredFaqs
+            .map(
+              faq => `
+                <details
+                  class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
+                  data-category="${faq.category}"
+                >
+                  <summary
+                    class="relative pr-10 cursor-pointer font-semibold text-deep-navy py-4 hover:text-deep-navy/80"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-right absolute right-2 top-1/2 -translate-y-1/2 text-deep-navy/40 transition-transform group-open:rotate-90"
+                    ></i>
+                    ${faq.question}
+                  </summary>
+                  <div class="mt-2 text-sm text-deep-navy/70 pb-4 pr-4">
+                    ${faq.answer}
+                  </div>
+                </details>
+              `
+            )
+            .join('');
+
+          // Auto-expand if only one item is visible
+          if (filteredFaqs.length === 1) {
+            const details = faqContainer.querySelector('details');
+            if (details) details.setAttribute('open', '');
+          }
+        }
+
+        // Render category filters
+        renderCategoryFilters() {
+          const filterContainer = document.querySelector(
+            '.flex.flex-wrap.gap-2.mb-12.justify-center'
+          );
+          const categories = this.getUniqueCategories();
+
+          filterContainer.innerHTML = categories
+            .map(
+              category => `
+                <button
+                  class="faq-category ${
+                    category === this.activeCategory ? 'active bg-gray-200' : 'bg-white'
+                  } px-4 py-2 rounded-full text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
+                  data-category="${category}"
+                >
+                  ${
+                    category === 'all'
+                      ? 'All Questions'
+                      : category.charAt(0).toUpperCase() + category.slice(1)
+                  }
+                </button>
+              `
+            )
+            .join('');
+
+          // Attach click handlers to category buttons
+          filterContainer.querySelectorAll('.faq-category').forEach(button => {
+            button.addEventListener('click', () => {
+              this.updateCategory(button.dataset.category);
+            });
+          });
+        }
+
+        // Main render function
+        render() {
+          this.renderFAQItems();
+          this.renderCategoryFilters();
         }
       }
 
-      // Initialize FAQs on page load
+      // Initialize FAQ Manager
+      const faqManager = new FAQManager();
+
+      // Initialize on page load
       document.addEventListener('DOMContentLoaded', function () {
-        renderFAQs();
+        // Initial render
+        faqManager.render();
 
+        // Set up search functionality
         const searchInput = document.getElementById('faqSearch');
-        const faqItems = document.querySelectorAll('details');
-
-        // Search functionality
-        searchInput.addEventListener('input', function (e) {
-          const searchTerm = e.target.value.toLowerCase();
-
-          faqItems.forEach(item => {
-            const question = item.querySelector('summary').textContent.toLowerCase();
-            const answer = item.querySelector('div').textContent.toLowerCase();
-            const matches = question.includes(searchTerm) || answer.includes(searchTerm);
-
-            item.style.display = matches ? 'block' : 'none';
-          });
-
-          autoExpandVisibleItems();
+        searchInput.addEventListener('input', e => {
+          faqManager.updateSearch(e.target.value);
         });
       });
 
-      // Update FAQs when view changes
+      // Expose update function for view changes
       window.updateFaqs = function (view) {
-        currentFaqs = view === 'investor' ? investorFaqs : sellerFaqs;
-        renderFAQs();
+        faqManager.updateView(view);
       };
     </script>
   </body>
