@@ -1357,6 +1357,16 @@
             const details = faqContainer.querySelector('details');
             if (details) details.setAttribute('open', '');
           }
+
+          // Trigger fade-in animation after a small delay
+          requestAnimationFrame(() => {
+            const faqItems = faqContainer.querySelectorAll('.fade-start');
+            faqItems.forEach(item => {
+              requestAnimationFrame(() => {
+                item.classList.add('fade-end');
+              });
+            });
+          });
         }
 
         // Render category filters
@@ -1395,6 +1405,12 @@
 
         // Main render function
         render() {
+          // Clear existing fade-end classes before re-rendering
+          const existingItems = document.querySelectorAll('.fade-end');
+          existingItems.forEach(item => {
+            item.classList.remove('fade-end');
+          });
+
           this.renderFAQItems();
           this.renderCategoryFilters();
         }
