@@ -1272,12 +1272,79 @@
       }
     </script>
     <script type="module">
-      import { faqData } from './faqs.js';
+      import { investorFaqs, sellerFaqs } from './faqs.js';
+
+      let currentFaqs = sellerFaqs;
+
+      // Function to get unique categories from FAQs
+      function getUniqueCategories(faqs) {
+        return ['all', ...new Set(faqs.map(faq => faq.category))];
+      }
+
+      // Function to render category filters
+      function renderCategoryFilters(categories) {
+        const filterContainer = document.querySelector(
+          '.flex.flex-wrap.gap-2.mb-12.justify-center'
+        );
+        filterContainer.innerHTML = categories
+          .map(
+            category => `
+          <button
+            class="faq-category ${
+              category === 'all' ? 'active bg-gray-200' : 'bg-white'
+            } px-4 py-2 rounded-full text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
+            data-category="${category}"
+          >
+            ${
+              category === 'all'
+                ? 'All Questions'
+                : category.charAt(0).toUpperCase() + category.slice(1)
+            }
+          </button>
+        `
+          )
+          .join('');
+
+        // Reattach event listeners to new buttons
+        attachCategoryFilterListeners();
+      }
+
+      // Function to attach category filter event listeners
+      function attachCategoryFilterListeners() {
+        const categoryButtons = document.querySelectorAll('.faq-category');
+        const faqItems = document.querySelectorAll('details');
+
+        categoryButtons.forEach(button => {
+          button.addEventListener('click', function () {
+            const category = this.dataset.category;
+
+            // Update active state
+            categoryButtons.forEach(btn => {
+              btn.classList.toggle('active', btn === this);
+              btn.classList.toggle('bg-gray-200', btn === this);
+              btn.classList.toggle('bg-white', btn !== this);
+              btn.classList.toggle('text-deep-navy', true);
+            });
+
+            // Filter items
+            faqItems.forEach(item => {
+              if (category === 'all') {
+                item.style.display = 'block';
+              } else {
+                item.style.display = item.dataset.category === category ? 'block' : 'none';
+              }
+            });
+
+            // Auto-expand if only one item is visible
+            autoExpandVisibleItems();
+          });
+        });
+      }
 
       // Function to render FAQs
       function renderFAQs() {
         const faqContainer = document.getElementById('faqContainer');
-        faqContainer.innerHTML = faqData
+        faqContainer.innerHTML = currentFaqs
           .map(
             faq => `
           <details
@@ -1299,6 +1366,19 @@
         `
           )
           .join('');
+
+        // Update category filters based on current FAQs
+        const categories = getUniqueCategories(currentFaqs);
+        renderCategoryFilters(categories);
+      }
+
+      // Function to auto-expand visible items
+      function autoExpandVisibleItems() {
+        const faqItems = document.querySelectorAll('details');
+        const visibleItems = Array.from(faqItems).filter(item => item.style.display !== 'none');
+        if (visibleItems.length === 1) {
+          visibleItems[0].setAttribute('open', '');
+        }
       }
 
       // Initialize FAQs on page load
@@ -1307,7 +1387,6 @@
 
         const searchInput = document.getElementById('faqSearch');
         const faqItems = document.querySelectorAll('details');
-        const categoryButtons = document.querySelectorAll('.faq-category');
 
         // Search functionality
         searchInput.addEventListener('input', function (e) {
@@ -1320,49 +1399,16 @@
 
             item.style.display = matches ? 'block' : 'none';
           });
-        });
 
-        // Category filter functionality
-        categoryButtons.forEach(button => {
-          button.addEventListener('click', function () {
-            const category = this.dataset.category;
-
-            // Update active state
-            categoryButtons.forEach(btn => {
-              btn.classList.toggle('active', btn === this);
-              btn.classList.toggle('bg-gray-200', btn === this);
-              btn.classList.toggle('bg-white', btn !== this);
-              btn.classList.toggle('text-deep-navy', true);
-            });
-
-            // Filter items
-            faqItems.forEach(item => {
-              if (category === 'all') {
-                item.style.display = 'block';
-              } else {
-                item.style.display = item.dataset.category === category ? 'block' : 'none';
-              }
-            });
-          });
-        });
-
-        // Auto-expand FAQ items when they're the only visible ones
-        function autoExpandVisibleItems() {
-          const visibleItems = Array.from(faqItems).filter(item => item.style.display !== 'none');
-          if (visibleItems.length === 1) {
-            visibleItems[0].setAttribute('open', '');
-          }
-        }
-
-        searchInput.addEventListener('input', autoExpandVisibleItems);
-        categoryButtons.forEach(button => {
-          button.addEventListener('click', autoExpandVisibleItems);
+          autoExpandVisibleItems();
         });
       });
 
-      function onClickJoinWaitList() {
-        posthog.capture('join_waitlist');
-      }
+      // Update FAQs when view changes
+      window.updateFaqs = function (view) {
+        currentFaqs = view === 'investor' ? investorFaqs : sellerFaqs;
+        renderFAQs();
+      };
     </script>
   </body>
 </html>
