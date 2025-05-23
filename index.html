@@ -963,12 +963,30 @@
 ====================================================== -->
     <section id="faq" class="py-20 bg-off-white">
       <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-deep-navy">
+        <h2 class="text-3xl font-bold text-center mb-12 text-deep-navy">
           Frequently Asked Questions
         </h2>
 
+        <!-- Investor/Seller Toggle -->
+        <div class="flex justify-center mb-12">
+          <div class="flex shadow-lg overflow-hidden rounded-full">
+            <button
+              id="faqInvestorBtn"
+              class="px-6 py-2 rounded-l-full font-semibold text-base transition focus:outline-none bg-deep-navy text-white"
+            >
+              For Investors
+            </button>
+            <button
+              id="faqSellerBtn"
+              class="px-6 py-2 rounded-r-full font-semibold text-base transition focus:outline-none bg-gray-200 text-deep-navy"
+            >
+              For Sellers
+            </button>
+          </div>
+        </div>
+
         <!-- Search Bar -->
-        <div class="relative mb-8">
+        <div class="relative mb-12">
           <input
             type="text"
             id="faqSearch"
@@ -1429,6 +1447,34 @@
         searchInput.addEventListener('input', e => {
           faqManager.updateSearch(e.target.value);
         });
+
+        // Set up FAQ toggle buttons
+        const faqInvestorBtn = document.getElementById('faqInvestorBtn');
+        const faqSellerBtn = document.getElementById('faqSellerBtn');
+
+        faqInvestorBtn.addEventListener('click', () => {
+          faqInvestorBtn.classList.add('bg-deep-navy', 'text-white');
+          faqInvestorBtn.classList.remove('bg-gray-200', 'text-deep-navy');
+          faqSellerBtn.classList.add('bg-gray-200', 'text-deep-navy');
+          faqSellerBtn.classList.remove('bg-deep-navy', 'text-white');
+          faqManager.updateView('investor');
+        });
+
+        faqSellerBtn.addEventListener('click', () => {
+          faqSellerBtn.classList.add('bg-deep-navy', 'text-white');
+          faqSellerBtn.classList.remove('bg-gray-200', 'text-deep-navy');
+          faqInvestorBtn.classList.add('bg-gray-200', 'text-deep-navy');
+          faqInvestorBtn.classList.remove('bg-deep-navy', 'text-white');
+          faqManager.updateView('seller');
+        });
+
+        // Set initial state based on URL parameter
+        const initialView = getInitialView();
+        if (initialView === 'seller') {
+          faqSellerBtn.click();
+        } else {
+          faqInvestorBtn.click();
+        }
       });
 
       // Expose update function for view changes
