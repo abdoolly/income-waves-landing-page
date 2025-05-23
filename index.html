@@ -355,46 +355,26 @@
         <h2 class="text-3xl font-bold text-deep-navy text-center mb-8">How It Works</h2>
 
         <!-- Tab toggles -->
-        <div
-          x-data="{
-                  tab: 'investor',
-                  setTab(newTab) { this.tab = newTab; window.updateView && window.updateView(newTab); }
-                }"
-          x-init="
-                  window.addEventListener('toggleTab', e => {
-                    tab = e.detail;
-                  });
-                  // Initialize tab based on URL parameter
-                  const urlParams = new URLSearchParams(window.location.search);
-                  const view = urlParams.get('view');
-                  if (view === 'seller') {
-                    tab = 'seller';
-                  }
-                "
-          id="howToggle"
-          class="mb-10"
-        >
+        <div id="howToggle" class="mb-10">
           <div
             class="flex justify-center mb-8 shadow-lg w-fit mx-auto overflow-hidden rounded-full"
           >
             <button
-              class="px-6 py-2 rounded-l-full font-semibold text-base transition focus:outline-none"
-              :class="tab === 'investor' ? 'bg-deep-navy text-white shadow' : 'bg-gray-200 text-deep-navy'"
-              @click="setTab('investor')"
+              id="howInvestorBtn"
+              class="px-6 py-2 rounded-l-full font-semibold text-base transition focus:outline-none bg-deep-navy text-white"
             >
               For Investors
             </button>
             <button
-              class="px-6 py-2 rounded-r-full font-semibold text-base transition focus:outline-none"
-              :class="tab === 'seller' ? 'bg-deep-navy text-white shadow' : 'bg-gray-200 text-deep-navy'"
-              @click="setTab('seller')"
+              id="howSellerBtn"
+              class="px-6 py-2 rounded-r-full font-semibold text-base transition focus:outline-none bg-gray-200 text-deep-navy"
             >
               For Sellers
             </button>
           </div>
 
           <!-- Investor Steps -->
-          <ol x-show="tab === 'investor'" class="space-y-6">
+          <div id="investorSteps" class="space-y-6">
             <li class="flex items-start gap-4">
               <span
                 class="flex items-center justify-center w-10 h-10 rounded-full bg-deep-navy text-white font-bold text-lg mt-1 flex-shrink-0"
@@ -489,10 +469,10 @@
                 </div>
               </div>
             </li>
-          </ol>
+          </div>
 
           <!-- Seller Steps -->
-          <ol x-show="tab === 'seller'" x-cloak class="space-y-6">
+          <div id="sellerSteps" class="space-y-6 hidden">
             <li class="flex items-start gap-4">
               <span
                 class="flex items-center justify-center w-10 h-10 rounded-full bg-deep-navy text-white font-bold text-lg mt-1 flex-shrink-0"
@@ -578,13 +558,10 @@
                 </div>
               </div>
             </li>
-          </ol>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- Alpine.js for tab functionality -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <!-- ======================================================
  ⚖️ Why Income Waves Section
@@ -1448,33 +1425,82 @@
           faqManager.updateSearch(e.target.value);
         });
 
-        // Set up FAQ toggle buttons
+        // Set up all toggle buttons
         const faqInvestorBtn = document.getElementById('faqInvestorBtn');
         const faqSellerBtn = document.getElementById('faqSellerBtn');
+        const mainInvestorBtn = document.getElementById('investorBtn');
+        const mainSellerBtn = document.getElementById('sellerBtn');
+        const howInvestorBtn = document.getElementById('howInvestorBtn');
+        const howSellerBtn = document.getElementById('howSellerBtn');
+        const investorSteps = document.getElementById('investorSteps');
+        const sellerSteps = document.getElementById('sellerSteps');
 
-        faqInvestorBtn.addEventListener('click', () => {
-          faqInvestorBtn.classList.add('bg-deep-navy', 'text-white');
-          faqInvestorBtn.classList.remove('bg-gray-200', 'text-deep-navy');
-          faqSellerBtn.classList.add('bg-gray-200', 'text-deep-navy');
-          faqSellerBtn.classList.remove('bg-deep-navy', 'text-white');
-          faqManager.updateView('investor');
-        });
+        function updateAllToggles(view) {
+          const isInvestor = view === 'investor';
 
-        faqSellerBtn.addEventListener('click', () => {
-          faqSellerBtn.classList.add('bg-deep-navy', 'text-white');
-          faqSellerBtn.classList.remove('bg-gray-200', 'text-deep-navy');
-          faqInvestorBtn.classList.add('bg-gray-200', 'text-deep-navy');
-          faqInvestorBtn.classList.remove('bg-deep-navy', 'text-white');
-          faqManager.updateView('seller');
-        });
+          // Update FAQ toggles
+          faqInvestorBtn.classList.toggle('bg-deep-navy', isInvestor);
+          faqInvestorBtn.classList.toggle('text-white', isInvestor);
+          faqInvestorBtn.classList.toggle('bg-gray-200', !isInvestor);
+          faqInvestorBtn.classList.toggle('text-deep-navy', !isInvestor);
+
+          faqSellerBtn.classList.toggle('bg-deep-navy', !isInvestor);
+          faqSellerBtn.classList.toggle('text-white', !isInvestor);
+          faqSellerBtn.classList.toggle('bg-gray-200', isInvestor);
+          faqSellerBtn.classList.toggle('text-deep-navy', isInvestor);
+
+          // Update main toggles
+          mainInvestorBtn.classList.toggle('bg-deep-navy', isInvestor);
+          mainInvestorBtn.classList.toggle('text-white', isInvestor);
+          mainInvestorBtn.classList.toggle('bg-gray-200', !isInvestor);
+          mainInvestorBtn.classList.toggle('text-deep-navy', !isInvestor);
+
+          mainSellerBtn.classList.toggle('bg-deep-navy', !isInvestor);
+          mainSellerBtn.classList.toggle('text-white', !isInvestor);
+          mainSellerBtn.classList.toggle('bg-gray-200', isInvestor);
+          mainSellerBtn.classList.toggle('text-deep-navy', isInvestor);
+
+          // Update How It Works toggles
+          howInvestorBtn.classList.toggle('bg-deep-navy', isInvestor);
+          howInvestorBtn.classList.toggle('text-white', isInvestor);
+          howInvestorBtn.classList.toggle('bg-gray-200', !isInvestor);
+          howInvestorBtn.classList.toggle('text-deep-navy', !isInvestor);
+
+          howSellerBtn.classList.toggle('bg-deep-navy', !isInvestor);
+          howSellerBtn.classList.toggle('text-white', !isInvestor);
+          howSellerBtn.classList.toggle('bg-gray-200', isInvestor);
+          howSellerBtn.classList.toggle('text-deep-navy', isInvestor);
+
+          // Update How It Works content
+          investorSteps.classList.toggle('hidden', !isInvestor);
+          sellerSteps.classList.toggle('hidden', isInvestor);
+
+          // Update all views
+          updateView(view);
+          faqManager.updateView(view);
+          updateMetadata(view);
+
+          // Update URL without reloading the page
+          const url = new URL(window.location);
+          url.searchParams.set('view', view);
+          window.history.pushState({}, '', url);
+        }
+
+        // FAQ toggle click handlers
+        faqInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
+        faqSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
+
+        // Main toggle click handlers
+        mainInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
+        mainSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
+
+        // How It Works toggle click handlers
+        howInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
+        howSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
 
         // Set initial state based on URL parameter
         const initialView = getInitialView();
-        if (initialView === 'seller') {
-          faqSellerBtn.click();
-        } else {
-          faqInvestorBtn.click();
-        }
+        updateAllToggles(initialView);
       });
 
       // Expose update function for view changes
