@@ -75,7 +75,6 @@ export const investorFaqs = [
     answer: `We charge a success fee on profits only:
       <br /><br />
       <strong>Fee Structure:</strong>
-      <br />• No upfront fees
       <br />• No monthly charges
       <br />• Success fee only on profits
       <br /><br />
@@ -133,7 +132,6 @@ export const sellerFaqs = [
       <br /><br />
       <strong>1. Amazon Account:</strong>
       <br />• Minimum 95% account health
-      <br />• 6+ months selling history
       <br />• Positive customer feedback
       <br /><br />
       <strong>2. Business Documentation:</strong>
@@ -142,24 +140,26 @@ export const sellerFaqs = [
       <br />• Bank statements
       <br /><br />
       <strong>3. Performance Metrics:</strong>
-      <br />• Minimum $5,000 monthly sales
       <br />• 20%+ profit margins
       <br />• Clean account history`,
   },
   {
     category: 'fees',
     question: 'What are the costs of funding?',
-    answer: `Our funding model is success-based:
+    answer: `<strong>There are absolutely no costs to sellers:</strong>
       <br /><br />
-      <strong>Cost Structure:</strong>
+      <strong>Zero Fees Structure:</strong>
       <br />• No upfront fees
       <br />• No monthly payments
-      <br />• Success fee on profits only
+      <br />• No success fees
+      <br />• No interest charges
       <br /><br />
-      <strong>Benefits:</strong>
-      <br />• Aligns with your success
-      <br />• No fixed payments
-      <br />• Flexible terms`,
+      <strong>Why This Matters:</strong>
+      <br />• 100% of your profits stay with you
+      <br />• No hidden costs or surprises
+      <br />• Our fees come from investor returns only
+      <br /><br />
+      <strong>The Bottom Line:</strong> You get funding with zero cost to grow your business faster.`,
   },
   {
     category: 'process',

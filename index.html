@@ -79,8 +79,9 @@
 
     <style>
       body {
-        font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', Roboto, Arial, 'Helvetica Neue', sans-serif;
+        font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system,
+          BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, 'Helvetica Neue',
+          sans-serif;
       }
 
       /* ------- Tiny helper for fade-in on scroll -------- */
@@ -188,15 +189,21 @@
               (p.crossOrigin = 'anonymous'),
               (p.async = !0),
               (p.src =
-                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js'),
-              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(p, r);
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r
+              );
             var u = e;
             for (
               void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
                 u.people = u.people || [],
                 u.toString = function (t) {
                   var e = 'posthog';
-                  return 'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e;
+                  return (
+                    'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e
+                  );
                 },
                 u.people.toString = function () {
                   return u.toString(1) + '.people (stub)';
@@ -225,11 +232,19 @@
     <!-- ======================================================
  🧭 Sticky Navbar
 ====================================================== -->
-    <header class="sticky top-0 z-50 bg-off-white/80 backdrop-blur border-b border-slate-200">
+    <header
+      class="sticky top-0 z-50 bg-off-white/80 backdrop-blur border-b border-slate-200"
+    >
       <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
         <div class="flex items-center space-x-2">
-          <img src="/images/logo-navy-rounded.png" alt="Income Waves Logo" class="w-12 h-12" />
-          <a href="#" class="text-xl font-semibold text-deep-navy">Income Waves</a>
+          <img
+            src="/images/logo-navy-rounded.png"
+            alt="Income Waves Logo"
+            class="w-12 h-12"
+          />
+          <a href="#" class="text-xl font-semibold text-deep-navy"
+            >Income Waves</a
+          >
         </div>
 
         <!-- Primary links -->
@@ -238,7 +253,9 @@
             <a href="#how" class="hover:text-deep-navy/70">How It Works</a>
           </li>
           <li>
-            <a href="#compare" class="hover:text-deep-navy/70">Why Income Waves</a>
+            <a href="#compare" class="hover:text-deep-navy/70"
+              >Why Income Waves</a
+            >
           </li>
           <li>
             <a href="#trust" class="hover:text-deep-navy/70">Why Trust Us</a>
@@ -272,7 +289,9 @@
       class="relative min-h-screen md:min-h-[97vh] pt-2 md:pt-20 bg-gradient-to-b from-deep-navy from-10% via-[#1e3c6e] via-30% via-[#3A7A96] via-60% to-[#8AADA7] md:to-mist-blue to-90% overflow-hidden flex flex-col items-center md:justify-center"
     >
       <!-- Decorative radial highlight behind content -->
-      <div class="relative z-10 max-w-5xl px-4 text-center space-y-6 mt-2 md:mt-0 py-12 md:py-8">
+      <div
+        class="relative z-10 max-w-5xl px-4 text-center space-y-6 mt-2 md:mt-0 py-12 md:py-8"
+      >
         <h1
           id="heroHeadline"
           class="text-4xl md:text-5xl font-extrabold text-off-white"
@@ -280,8 +299,12 @@
         >
           Invest in Amazon sellers and earn without running a store.
         </h1>
-        <p id="heroSub" class="max-w-xl mx-auto text-lg font-semibold text-off-white">
-          Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100.
+        <p
+          id="heroSub"
+          class="max-w-xl mx-auto text-lg font-semibold text-off-white"
+        >
+          Get 20-35% returns in just 2-6 months from vetted Amazon sellers,
+          starting at $100.
         </p>
         <div class="mt-8">
           <p class="text-off-white/90 font-medium text-base mb-4">
@@ -295,11 +318,17 @@
             Join the waitlist
           </a>
         </div>
-        <div id="heroBadges" class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div
+          id="heroBadges"
+          class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+        >
           <!-- Badges render here via JS -->
         </div>
         <div class="mt-8 flex justify-center">
-          <a href="#signup" class="animate-bounce text-deep-navy text-4xl md:text-4xl">
+          <a
+            href="#signup"
+            class="animate-bounce text-deep-navy text-4xl md:text-4xl"
+          >
             <i class="fa-solid fa-chevron-down"></i>
           </a>
         </div>
@@ -317,7 +346,13 @@
         >
           <defs>
             <!-- Soft upward shadow -->
-            <filter id="waveShadow" x="-20%" y="-50%" width="140%" height="200%">
+            <filter
+              id="waveShadow"
+              x="-20%"
+              y="-50%"
+              width="140%"
+              height="200%"
+            >
               <!-- Softer, blurrier shadow -->
               <feDropShadow
                 dx="0"
@@ -352,7 +387,9 @@
 ====================================================== -->
     <section id="how" class="py-20 bg-off-white">
       <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-deep-navy text-center mb-8">How It Works</h2>
+        <h2 class="text-3xl font-bold text-deep-navy text-center mb-8">
+          How It Works
+        </h2>
 
         <!-- Tab toggles -->
         <div id="howToggle" class="mb-10">
@@ -382,7 +419,9 @@
               >
               <div>
                 <span class="font-semibold text-deep-navy">Sign Up</span>
-                <div class="text-deep-navy/70 text-sm">Create your free Income Waves account.</div>
+                <div class="text-deep-navy/70 text-sm">
+                  Create your free Income Waves account.
+                </div>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -391,7 +430,9 @@
                 >2</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Choose Seller Plan</span>
+                <span class="font-semibold text-deep-navy"
+                  >Choose Seller Plan</span
+                >
                 <div class="text-deep-navy/70 text-sm">
                   Browse vetted opportunities and pick a seller to support.
                 </div>
@@ -415,9 +456,12 @@
                 >4</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Inventory Verified</span>
+                <span class="font-semibold text-deep-navy"
+                  >Inventory Verified</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Amazon confirms inventory is received into FBA (Fulfillment by Amazon).
+                  Amazon confirms inventory is received into FBA (Fulfillment by
+                  Amazon).
                 </div>
               </div>
             </li>
@@ -451,9 +495,12 @@
                 >7</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Profits + Original Amount Returned</span>
+                <span class="font-semibold text-deep-navy"
+                  >Profits + Original Amount Returned</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  The seller sends you your original amount plus your share of profits.
+                  The seller sends you your original amount plus your share of
+                  profits.
                 </div>
               </div>
             </li>
@@ -465,7 +512,8 @@
               <div>
                 <span class="font-semibold text-deep-navy">Monthly Payout</span>
                 <div class="text-deep-navy/70 text-sm">
-                  You receive your payout every month directly to your linked account.
+                  You receive your payout every month directly to your linked
+                  account.
                 </div>
               </div>
             </li>
@@ -479,9 +527,12 @@
                 >1</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Submit Your Plan</span>
+                <span class="font-semibold text-deep-navy"
+                  >Submit Your Plan</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Present your next big Amazon opportunity and the funding you need to grow.
+                  Present your next big Amazon opportunity and the funding you
+                  need to grow.
                 </div>
               </div>
             </li>
@@ -493,7 +544,8 @@
               <div>
                 <span class="font-semibold text-deep-navy">Get Approved</span>
                 <div class="text-deep-navy/70 text-sm">
-                  Our team reviews and quickly approves promising sellers and plans.
+                  Our team reviews and quickly approves promising sellers and
+                  plans.
                 </div>
               </div>
             </li>
@@ -503,9 +555,12 @@
                 >3</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Ship Inventory to Amazon</span>
+                <span class="font-semibold text-deep-navy"
+                  >Ship Inventory to Amazon</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Send your products to Amazon FBA (Fulfillment by Amazon) warehouses.
+                  Send your products to Amazon FBA (Fulfillment by Amazon)
+                  warehouses.
                 </div>
               </div>
             </li>
@@ -515,9 +570,12 @@
                 >4</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Receive Funding</span>
+                <span class="font-semibold text-deep-navy"
+                  >Receive Funding</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Funds are released as soon as Amazon confirms your inventory is received.
+                  Funds are released as soon as Amazon confirms your inventory
+                  is received.
                 </div>
               </div>
             </li>
@@ -527,9 +585,12 @@
                 >5</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Start Selling & Growing</span>
+                <span class="font-semibold text-deep-navy"
+                  >Start Selling & Growing</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Your products go live—make sales and scale up faster than ever.
+                  Your products go live—make sales and scale up faster than
+                  ever.
                 </div>
               </div>
             </li>
@@ -539,9 +600,12 @@
                 >6</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Share Your Success</span>
+                <span class="font-semibold text-deep-navy"
+                  >Share Your Success</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Update investors monthly, building trust and celebrating wins together.
+                  Update investors monthly, building trust and celebrating wins
+                  together.
                 </div>
               </div>
             </li>
@@ -551,10 +615,12 @@
                 >7</span
               >
               <div>
-                <span class="font-semibold text-deep-navy">Unlock Bigger Funding</span>
+                <span class="font-semibold text-deep-navy"
+                  >Unlock Bigger Funding</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Strong results and great updates open the door to even more investment for your
-                  next big move.
+                  Strong results and great updates open the door to even more
+                  investment for your next big move.
                 </div>
               </div>
             </li>
@@ -579,10 +645,14 @@
           >
             <div class="flex items-center gap-3 mb-4">
               <i class="fa-solid fa-piggy-bank text-3xl text-deep-navy/50"></i>
-              <span class="font-semibold text-xl text-deep-navy/70">Normal Investments</span>
+              <span class="font-semibold text-xl text-deep-navy/70"
+                >Normal Investments</span
+              >
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-chart-line text-lg text-deep-navy/50 mt-1"></i>
+              <i
+                class="fa-solid fa-chart-line text-lg text-deep-navy/50 mt-1"
+              ></i>
               <div>
                 <span class="font-semibold text-deep-navy/70"
                   >Stocks, Index Funds, REITs, Savings Accounts</span
@@ -595,23 +665,33 @@
             <div class="flex items-start gap-3">
               <i class="fa-solid fa-percent text-lg text-deep-navy/50 mt-1"></i>
               <div>
-                <span class="font-semibold text-deep-navy/70">4–10% avg. annual returns</span>
-                <div class="text-slate-500 text-sm">Margins often limited by market cycles.</div>
+                <span class="font-semibold text-deep-navy/70"
+                  >4–10% avg. annual returns</span
+                >
+                <div class="text-slate-500 text-sm">
+                  Margins often limited by market cycles.
+                </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <i class="fa-solid fa-lock text-lg text-deep-navy/50 mt-1"></i>
               <div>
-                <span class="font-semibold text-deep-navy/70">Long lock-up periods</span>
+                <span class="font-semibold text-deep-navy/70"
+                  >Long lock-up periods</span
+                >
                 <div class="text-slate-500 text-sm">
                   Funds tied up for years, limited liquidity.
                 </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-eye-slash text-lg text-deep-navy/50 mt-1"></i>
+              <i
+                class="fa-solid fa-eye-slash text-lg text-deep-navy/50 mt-1"
+              ></i>
               <div>
-                <span class="font-semibold text-deep-navy/70">Limited insight</span>
+                <span class="font-semibold text-deep-navy/70"
+                  >Limited insight</span
+                >
                 <div class="text-slate-500 text-sm">
                   Rarely see how your money is actually used.
                 </div>
@@ -620,20 +700,26 @@
             <div class="flex items-start gap-3">
               <i class="fa-solid fa-globe text-lg text-deep-navy/50 mt-1"></i>
               <div>
-                <span class="font-semibold text-deep-navy/70">Available to everyone</span>
+                <span class="font-semibold text-deep-navy/70"
+                  >Available to everyone</span
+                >
                 <div class="text-slate-500 text-sm">
-                  Anyone can access the same public markets and investment options.
+                  Anyone can access the same public markets and investment
+                  options.
                 </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-hand-pointer text-lg text-deep-navy/50 mt-1"></i>
+              <i
+                class="fa-solid fa-hand-pointer text-lg text-deep-navy/50 mt-1"
+              ></i>
               <div>
                 <span class="font-semibold text-deep-navy/70"
                   >Limited control over investments</span
                 >
                 <div class="text-slate-500 text-sm">
-                  Managed funds and portfolios offer little say in where your money goes.
+                  Managed funds and portfolios offer little say in where your
+                  money goes.
                 </div>
               </div>
             </div>
@@ -644,9 +730,15 @@
             class="bg-white rounded-2xl shadow-xl p-8 flex flex-col gap-6 border-2 border-deep-navy"
           >
             <div class="flex items-center gap-2 mb-4">
-              <img src="/images/logo-navy-rounded.png" alt="Income Waves Logo" class="w-10 h-10" />
+              <img
+                src="/images/logo-navy-rounded.png"
+                alt="Income Waves Logo"
+                class="w-10 h-10"
+              />
               <!-- Replace parentheses with an em-dash -->
-              <span class="font-semibold text-xl text-deep-navy"> Amazon Powered Returns </span>
+              <span class="font-semibold text-xl text-deep-navy">
+                Amazon Powered Returns
+              </span>
               <!-- Navy pill, tighter padding, baseline aligned -->
               <span
                 class="ml-2 inline-block bg-deep-navy text-white text-xs font-semibold px-2 py-1 rounded flex-shrink-0"
@@ -658,25 +750,36 @@
             <div class="flex items-start gap-3">
               <i class="fa-solid fa-store text-lg text-deep-navy mt-1"></i>
               <div>
-                <span class="font-semibold text-deep-navy">Directly back Amazon stores</span>
+                <span class="font-semibold text-deep-navy"
+                  >Directly back Amazon stores</span
+                >
                 <div class="text-deep-navy/70 text-sm">
-                  Invest in real inventory & real growth, not just numbers on a screen.
+                  Invest in real inventory & real growth, not just numbers on a
+                  screen.
                 </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-arrow-trend-up text-lg text-deep-navy mt-1"></i>
+              <i
+                class="fa-solid fa-arrow-trend-up text-lg text-deep-navy mt-1"
+              ></i>
               <div>
-                <span class="font-semibold text-deep-navy">20–35% profit margins</span>
+                <span class="font-semibold text-deep-navy"
+                  >20–35% profit margins</span
+                >
                 <div class="text-deep-navy/70 text-sm">
                   Benefit from Amazon's high-performance sellers.
                 </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-clock-rotate-left text-lg text-deep-navy mt-1"></i>
+              <i
+                class="fa-solid fa-clock-rotate-left text-lg text-deep-navy mt-1"
+              ></i>
               <div>
-                <span class="font-semibold text-deep-navy">Short cycles (2–6 months)</span>
+                <span class="font-semibold text-deep-navy"
+                  >Short cycles (2–6 months)</span
+                >
                 <div class="text-deep-navy/70 text-sm">
                   Faster access to profits, not multi-year waits.
                 </div>
@@ -685,7 +788,9 @@
             <div class="flex items-start gap-3">
               <i class="fa-solid fa-chart-bar text-lg text-deep-navy mt-1"></i>
               <div>
-                <span class="font-semibold text-deep-navy">Transparent monthly performance</span>
+                <span class="font-semibold text-deep-navy"
+                  >Transparent monthly performance</span
+                >
                 <div class="text-deep-navy/70 text-sm">
                   Track every store, see real results every month.
                 </div>
@@ -698,20 +803,22 @@
                   >Exclusive seller access from just $100</span
                 >
                 <div class="text-deep-navy/70 text-sm">
-                  Access carefully vetted Amazon seller opportunities that aren't available to the
-                  general public.
+                  Access carefully vetted Amazon seller opportunities that
+                  aren't available to the general public.
                 </div>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fa-solid fa-hand-pointer text-lg text-deep-navy mt-1"></i>
+              <i
+                class="fa-solid fa-hand-pointer text-lg text-deep-navy mt-1"
+              ></i>
               <div>
                 <span class="font-semibold text-deep-navy"
                   >You choose which sellers to support</span
                 >
                 <div class="text-deep-navy/70 text-sm">
-                  Pick specific Amazon seller plans that match your investment goals and risk
-                  appetite.
+                  Pick specific Amazon seller plans that match your investment
+                  goals and risk appetite.
                 </div>
               </div>
             </div>
@@ -735,7 +842,9 @@
                   class="w-1/3 p-3 bg-off-white text-center text-deep-navy/70 font-semibold border-b border-gray-200"
                 >
                   <div class="flex flex-col items-center">
-                    <i class="fa-solid fa-piggy-bank text-2xl mb-2 text-deep-navy/50"></i>
+                    <i
+                      class="fa-solid fa-piggy-bank text-2xl mb-2 text-deep-navy/50"
+                    ></i>
                     Normal Investments
                   </div>
                 </th>
@@ -749,7 +858,8 @@
                       class="w-8 h-8 mb-2"
                     />
                     Income Waves
-                    <span class="mt-1 text-xs bg-white text-deep-navy px-2 py-0.5 rounded"
+                    <span
+                      class="mt-1 text-xs bg-white text-deep-navy px-2 py-0.5 rounded"
                       >Smart Choice</span
                     >
                   </div>
@@ -759,8 +869,12 @@
             <tbody>
               <!-- Investment Type -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">Type</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">
+                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">
+                  Type
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
                   Stocks, Funds, REITs
                 </td>
                 <td
@@ -771,8 +885,14 @@
               </tr>
               <!-- Returns -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">Returns</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">4–10% yearly</td>
+                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">
+                  Returns
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
+                  4–10% yearly
+                </td>
                 <td
                   class="p-3 bg-white text-center font-medium text-deep-navy border-r-2 border-l-2 border-b-2 border-deep-navy"
                 >
@@ -781,8 +901,12 @@
               </tr>
               <!-- Timeframe -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">Timeframe</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">
+                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">
+                  Timeframe
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
                   Years locked up
                 </td>
                 <td
@@ -793,8 +917,12 @@
               </tr>
               <!-- Transparency -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">Transparency</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">
+                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">
+                  Transparency
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
                   Limited insight
                 </td>
                 <td
@@ -805,8 +933,12 @@
               </tr>
               <!-- control -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">Control</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">
+                <td class="p-3 bg-gray-100 font-semibold text-deep-navy">
+                  Control
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
                   Limited control (managed funds, etc.)
                 </td>
                 <td
@@ -817,8 +949,14 @@
               </tr>
               <!-- Access -->
               <tr>
-                <td class="p-3 bg-gray-100 font-semibold text-deep-navy rounded-bl-lg">Access</td>
-                <td class="p-3 bg-off-white text-center border-b border-gray-200">
+                <td
+                  class="p-3 bg-gray-100 font-semibold text-deep-navy rounded-bl-lg"
+                >
+                  Access
+                </td>
+                <td
+                  class="p-3 bg-off-white text-center border-b border-gray-200"
+                >
                   Available to everyone
                 </td>
                 <td
@@ -837,7 +975,8 @@
         <h4
           class="w-full text-center text-xl md:text-2xl font-bold tracking-wide text-deep-navy/80"
         >
-          Invest in trusted Amazon sellers. Earn as they grow—no store, no hustle
+          Invest in trusted Amazon sellers. Earn as they grow—no store, no
+          hustle
         </h4>
       </div>
     </section>
@@ -847,17 +986,24 @@
 ====================================================== -->
     <section id="trust" class="py-20 bg-off-white">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-deep-navy text-center mb-12">Why Trust Us</h2>
+        <h2 class="text-3xl font-bold text-deep-navy text-center mb-12">
+          Why Trust Us
+        </h2>
 
         <div class="grid gap-8 sm:grid-cols-3">
           <!-- Card 1 -->
           <div
             class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform"
           >
-            <i class="fa-solid fa-shield-halved text-4xl text-deep-navy mb-4"></i>
-            <h3 class="font-semibold mb-2 text-deep-navy">Seller Verification</h3>
+            <i
+              class="fa-solid fa-shield-halved text-4xl text-deep-navy mb-4"
+            ></i>
+            <h3 class="font-semibold mb-2 text-deep-navy">
+              Seller Verification
+            </h3>
             <p class="text-sm text-deep-navy/70">
-              Every merchant passes identity and store-performance checks before listing.
+              Every merchant passes identity and store-performance checks before
+              listing.
             </p>
           </div>
 
@@ -866,10 +1012,12 @@
             class="fade-start bg-white rounded-xl shadow p-6 text-center bg-off-white hover:shadow-lg hover:-translate-y-1 transition-transform"
           >
             <i class="fa-solid fa-box-open text-4xl text-deep-navy mb-4"></i>
-            <h3 class="font-semibold mb-2 text-deep-navy">Inventory Confirmed</h3>
+            <h3 class="font-semibold mb-2 text-deep-navy">
+              Inventory Confirmed
+            </h3>
             <p class="text-sm text-deep-navy/70">
-              Funds flow only after Amazon confirms items received into FBA (Fulfillment by Amazon)
-              warehouses.
+              Funds flow only after Amazon confirms items received into FBA
+              (Fulfillment by Amazon) warehouses.
             </p>
           </div>
 
@@ -880,7 +1028,8 @@
             <i class="fa-solid fa-file-lines text-4xl text-deep-navy mb-4"></i>
             <h3 class="font-semibold mb-2 text-deep-navy">Monthly Insight</h3>
             <p class="text-sm text-deep-navy/70">
-              Simple updates show units sold, profits shared, and your growing returns.
+              Simple updates show units sold, profits shared, and your growing
+              returns.
             </p>
           </div>
         </div>
@@ -892,14 +1041,16 @@
 ====================================================== -->
     <section id="risk" class="py-16">
       <div class="max-w-3xl mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold text-deep-navy mb-4 flex items-center justify-center gap-2">
+        <h2
+          class="text-2xl font-bold text-deep-navy mb-4 flex items-center justify-center gap-2"
+        >
           <i class="fa-solid fa-shield-halved text-deep-navy"></i>
           Risk & Safety
         </h2>
         <p class="text-deep-navy/70 text-lg">
-          Funds are only released to sellers after Amazon confirms inventory is received. Investors
-          choose which seller plan to back, and payouts are made in stages to manage risk and align
-          incentives.
+          Funds are only released to sellers after Amazon confirms inventory is
+          received. Investors choose which seller plan to back, and payouts are
+          made in stages to manage risk and align incentives.
         </p>
       </div>
     </section>
@@ -909,7 +1060,9 @@
 ====================================================== -->
     <section id="signup" class="py-20 bg-mist-blue">
       <div class="max-w-xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-deep-navy">Get Early Access</h2>
+        <h2 class="text-3xl font-bold text-center text-deep-navy">
+          Get Early Access
+        </h2>
         <div class="mx-auto max-w-xl relative">
           <div
             id="spinner"
@@ -1030,14 +1183,22 @@
       >
         <div class="flex items-center space-x-3">
           <div class="flex items-center space-x-2">
-            <img src="/images/logo-navy-rounded.png" alt="Income Waves Logo" class="w-12 h-12" />
-            <span class="font-semibold text-deep-navy text-lg">Income Waves</span>
+            <img
+              src="/images/logo-navy-rounded.png"
+              alt="Income Waves Logo"
+              class="w-12 h-12"
+            />
+            <span class="font-semibold text-deep-navy text-lg"
+              >Income Waves</span
+            >
           </div>
           <span class="hidden md:inline text-deep-navy">|</span>
           <a href="#" class="hover:underline text-deep-navy">Terms</a>
           <a href="#" class="hover:underline ml-4 text-deep-navy">Privacy</a>
         </div>
-        <div class="text-xs text-right">&copy; 2025 Income Waves. All rights reserved.</div>
+        <div class="text-xs text-right">
+          &copy; 2025 Income Waves. All rights reserved.
+        </div>
       </div>
     </footer>
 
@@ -1088,9 +1249,9 @@
           desc: 'Grow your store and build a record that attracts future investors.',
         },
         {
-          icon: 'fa-solid fa-users',
-          title: 'Trusted by Investors',
-          desc: 'Vetted sellers connect with new backers — not banks or credit cards.',
+          icon: 'fa-solid fa-dollar-sign',
+          title: 'Zero Fees for Sellers',
+          desc: 'Keep every penny of your profits—no upfront costs, no monthly fees, no success charges.',
         },
         {
           icon: 'fa-solid fa-hand-holding-dollar',
@@ -1104,7 +1265,7 @@
         const heroBadges = document.getElementById('heroBadges');
         heroBadges.innerHTML = badges
           .map(
-            badge => `
+            (badge) => `
         <div class="flex flex-col items-center text-center">
           <div class="flex items-center justify-center w-12 h-12 bg-white rounded-full mb-2 shadow-md">
             <i class="${badge.icon} text-2xl text-deep-navy"></i>
@@ -1133,7 +1294,8 @@
 
         /* Dynamic copy */
         if (isInvestor) {
-          heroHeadline.textContent = 'Invest in Amazon sellers and earn without running a store.';
+          heroHeadline.textContent =
+            'Invest in Amazon sellers and earn without running a store.';
           heroSub.textContent =
             'Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting as low as $100.';
         } else {
@@ -1169,7 +1331,8 @@
         const metaTitle = document.getElementById('metaTitle');
         const metaDescription = document.getElementById('metaDescription');
         const twitterTitle = document.getElementById('twitterTitle');
-        const twitterDescription = document.getElementById('twitterDescription');
+        const twitterDescription =
+          document.getElementById('twitterDescription');
         const pageTitle = document.getElementById('pageTitle');
         const ogUrl = document.querySelector('meta[property="og:url"]');
 
@@ -1179,7 +1342,8 @@
         ogUrl.setAttribute('content', currentUrl.toString());
 
         if (isInvestor) {
-          const title = 'Income Waves – Invest in Amazon sellers and earn without running a store.';
+          const title =
+            'Income Waves – Invest in Amazon sellers and earn without running a store.';
           const description =
             'Get 20-35% returns in just 2-6 months from vetted Amazon sellers, starting at $100.';
 
@@ -1236,7 +1400,7 @@
       // ——— Fade in on scroll ———
       function fadeInOnScroll() {
         const els = document.querySelectorAll('.fade-start');
-        els.forEach(el => {
+        els.forEach((el) => {
           const rect = el.getBoundingClientRect();
           if (rect.top < window.innerHeight - 64) {
             el.classList.add('fade-end');
@@ -1258,9 +1422,11 @@
         v = function () {
           'undefined' != typeof Tally
             ? Tally.loadEmbeds()
-            : d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (e) {
-                e.src = e.dataset.tallySrc;
-              });
+            : d
+                .querySelectorAll('iframe[data-tally-src]:not([src])')
+                .forEach(function (e) {
+                  e.src = e.dataset.tallySrc;
+                });
         };
       if ('undefined' != typeof Tally) v();
       else if (d.querySelector('script[src="' + w + '"]') == null) {
@@ -1275,26 +1441,31 @@
       class FAQManager {
         constructor() {
           this.currentView = getInitialView();
-          this.currentFaqs = this.currentView === 'investor' ? investorFaqs : sellerFaqs;
+          this.currentFaqs =
+            this.currentView === 'investor' ? investorFaqs : sellerFaqs;
           this.searchTerm = '';
           this.activeCategory = 'all';
         }
 
         // Get unique categories from current FAQs
         getUniqueCategories() {
-          return ['all', ...new Set(this.currentFaqs.map(faq => faq.category))];
+          return [
+            'all',
+            ...new Set(this.currentFaqs.map((faq) => faq.category)),
+          ];
         }
 
         // Filter FAQs based on search term and category
         getFilteredFaqs() {
-          return this.currentFaqs.filter(faq => {
+          return this.currentFaqs.filter((faq) => {
             const matchesSearch =
               this.searchTerm === '' ||
               faq.question.toLowerCase().includes(this.searchTerm) ||
               faq.answer.toLowerCase().includes(this.searchTerm);
 
             const matchesCategory =
-              this.activeCategory === 'all' || faq.category === this.activeCategory;
+              this.activeCategory === 'all' ||
+              faq.category === this.activeCategory;
 
             return matchesSearch && matchesCategory;
           });
@@ -1326,7 +1497,7 @@
 
           faqContainer.innerHTML = filteredFaqs
             .map(
-              faq => `
+              (faq) => `
                 <details
                   class="fade-start group border-l-4 border-deep-navy pl-4 transition-all duration-300 hover:bg-white/50 rounded-r-lg"
                   data-category="${faq.category}"
@@ -1356,7 +1527,7 @@
           // Trigger fade-in animation after a small delay
           requestAnimationFrame(() => {
             const faqItems = faqContainer.querySelectorAll('.fade-start');
-            faqItems.forEach(item => {
+            faqItems.forEach((item) => {
               requestAnimationFrame(() => {
                 item.classList.add('fade-end');
               });
@@ -1373,10 +1544,12 @@
 
           filterContainer.innerHTML = categories
             .map(
-              category => `
+              (category) => `
                 <button
                   class="faq-category ${
-                    category === this.activeCategory ? 'active bg-gray-200' : 'bg-white'
+                    category === this.activeCategory
+                      ? 'active bg-gray-200'
+                      : 'bg-white'
                   } px-4 py-2 rounded-full text-deep-navy text-sm font-medium transition-colors shadow-sm hover:bg-gray-50"
                   data-category="${category}"
                 >
@@ -1391,18 +1564,20 @@
             .join('');
 
           // Attach click handlers to category buttons
-          filterContainer.querySelectorAll('.faq-category').forEach(button => {
-            button.addEventListener('click', () => {
-              this.updateCategory(button.dataset.category);
+          filterContainer
+            .querySelectorAll('.faq-category')
+            .forEach((button) => {
+              button.addEventListener('click', () => {
+                this.updateCategory(button.dataset.category);
+              });
             });
-          });
         }
 
         // Main render function
         render() {
           // Clear existing fade-end classes before re-rendering
           const existingItems = document.querySelectorAll('.fade-end');
-          existingItems.forEach(item => {
+          existingItems.forEach((item) => {
             item.classList.remove('fade-end');
           });
 
@@ -1421,7 +1596,7 @@
 
         // Set up search functionality
         const searchInput = document.getElementById('faqSearch');
-        searchInput.addEventListener('input', e => {
+        searchInput.addEventListener('input', (e) => {
           faqManager.updateSearch(e.target.value);
         });
 
@@ -1487,16 +1662,28 @@
         }
 
         // FAQ toggle click handlers
-        faqInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
-        faqSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
+        faqInvestorBtn.addEventListener('click', () =>
+          updateAllToggles('investor')
+        );
+        faqSellerBtn.addEventListener('click', () =>
+          updateAllToggles('seller')
+        );
 
         // Main toggle click handlers
-        mainInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
-        mainSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
+        mainInvestorBtn.addEventListener('click', () =>
+          updateAllToggles('investor')
+        );
+        mainSellerBtn.addEventListener('click', () =>
+          updateAllToggles('seller')
+        );
 
         // How It Works toggle click handlers
-        howInvestorBtn.addEventListener('click', () => updateAllToggles('investor'));
-        howSellerBtn.addEventListener('click', () => updateAllToggles('seller'));
+        howInvestorBtn.addEventListener('click', () =>
+          updateAllToggles('investor')
+        );
+        howSellerBtn.addEventListener('click', () =>
+          updateAllToggles('seller')
+        );
 
         // Set initial state based on URL parameter
         const initialView = getInitialView();
