@@ -1713,6 +1713,10 @@
         updateAllToggles(initialView);
       });
 
+      function onClickJoinWaitList() {
+        posthog.capture('join_waitlist');
+      }
+
       // Expose update function for view changes
       window.updateFaqs = function (view) {
         faqManager.updateView(view);
