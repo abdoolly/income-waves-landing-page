@@ -1110,6 +1110,7 @@
         setHowTab('investor');
         updateMetadata('investor');
         window.updateFaqs('investor');
+        window.updateComparison('investor');
         // Update URL without reloading the page
         const url = new URL(window.location);
         url.searchParams.set('view', 'investor');
@@ -1120,6 +1121,7 @@
         setHowTab('seller');
         updateMetadata('seller');
         window.updateFaqs('seller');
+        window.updateComparison('seller');
         // Update URL without reloading the page
         const url = new URL(window.location);
         url.searchParams.set('view', 'seller');
@@ -1172,11 +1174,7 @@
     </script>
     <script type="module">
       import { investorFaqs, sellerFaqs } from './faqs.js';
-      import {
-        comparisonData,
-        mobileTableLabels,
-        comparisonFooter,
-      } from './comparison.js';
+      import { comparisonData, mobileTableLabels } from './comparison.js';
 
       // FAQ Management System
       class FAQManager {
@@ -1333,38 +1331,65 @@
       // Comparison Section Management
       class ComparisonManager {
         constructor() {
+          this.currentView = getInitialView();
+          this.render();
+        }
+
+        // Update the view and re-render
+        updateView(view) {
+          this.currentView = view;
+          this.render();
+        }
+
+        // Main render function
+        render() {
+          this.renderSectionTitle();
           this.renderDesktopComparison();
           this.renderMobileComparison();
           this.renderFooter();
         }
 
+        // Render section title
+        renderSectionTitle() {
+          const titleElements = document.querySelectorAll('#compare h2');
+          const currentData = comparisonData[this.currentView];
+          if (titleElements && currentData) {
+            titleElements.forEach((titleElement) => {
+              titleElement.textContent = currentData.sectionTitle;
+            });
+          }
+        }
+
         // Render desktop comparison cards
         renderDesktopComparison() {
           const container = document.getElementById('comparisonCards');
-          const { normalInvestments, incomeWaves } = comparisonData;
+          const currentData = comparisonData[this.currentView];
+          if (!currentData) return;
+
+          const { alternative, incomeWaves } = currentData;
 
           container.innerHTML = `
-            <!-- Normal Investments Card -->
+            <!-- Alternative Card -->
             <div class="${
-              normalInvestments.bgColor
+              alternative.bgColor
             } rounded-2xl shadow p-8 flex flex-col gap-6 border ${
-            normalInvestments.borderColor
+            alternative.borderColor
           }">
               <div class="flex items-center gap-3 mb-4">
-                <i class="${normalInvestments.icon} text-3xl ${
-            normalInvestments.iconColor
+                <i class="${alternative.icon} text-3xl ${
+            alternative.iconColor
           }"></i>
-                <span class="font-semibold text-xl ${
-                  normalInvestments.textColor
-                }">${normalInvestments.title}</span>
+                <span class="font-semibold text-xl ${alternative.textColor}">${
+            alternative.title
+          }</span>
               </div>
-              ${normalInvestments.points
+              ${alternative.points
                 .map(
                   (point) => `
                 <div class="flex items-start gap-3">
-                  <i class="${point.icon} text-lg ${normalInvestments.iconColor} mt-1"></i>
+                  <i class="${point.icon} text-lg ${alternative.iconColor} mt-1"></i>
                   <div>
-                    <span class="font-semibold ${normalInvestments.textColor}">${point.title}</span>
+                    <span class="font-semibold ${alternative.textColor}">${point.title}</span>
                     <div class="text-slate-500 text-sm">${point.description}</div>
                   </div>
                 </div>
@@ -1416,21 +1441,25 @@
         // Render mobile comparison table
         renderMobileComparison() {
           const table = document.getElementById('comparisonTable');
-          const { normalInvestments, incomeWaves } = comparisonData;
+          const currentData = comparisonData[this.currentView];
+          if (!currentData) return;
+
+          const { alternative, incomeWaves } = currentData;
+          const currentLabels = mobileTableLabels[this.currentView];
 
           // Create table header
           const headerHtml = `
             <thead>
               <tr>
                 <th class="w-1/3 p-3 bg-gray-100 rounded-tl-lg text-left"></th>
-                <th class="w-1/3 p-3 ${normalInvestments.bgColor} text-center ${
-            normalInvestments.textColor
+                <th class="w-1/3 p-3 ${alternative.bgColor} text-center ${
+            alternative.textColor
           } font-semibold border-b border-gray-200">
                   <div class="flex flex-col items-center">
-                    <i class="${normalInvestments.icon} text-2xl mb-2 ${
-            normalInvestments.iconColor
+                    <i class="${alternative.icon} text-2xl mb-2 ${
+            alternative.iconColor
           }"></i>
-                    ${normalInvestments.title}
+                    ${alternative.title}
                   </div>
                 </th>
                 <th class="w-1/3 p-3 bg-deep-navy text-center text-white font-semibold rounded-tr-lg">
@@ -1457,15 +1486,15 @@
           // Create table body rows
           const bodyHtml = `
             <tbody>
-              ${mobileTableLabels
+              ${currentLabels
                 .map((label, index) => {
-                  const normalPoint = normalInvestments.points.find(
+                  const alternativePoint = alternative.points.find(
                     (p) => p.mobileLabel === label
                   );
                   const incomeWavesPoint = incomeWaves.points.find(
                     (p) => p.mobileLabel === label
                   );
-                  const isLast = index === mobileTableLabels.length - 1;
+                  const isLast = index === currentLabels.length - 1;
 
                   return `
                   <tr>
@@ -1475,9 +1504,9 @@
                       ${label}
                     </td>
                     <td class="p-3 ${
-                      normalInvestments.bgColor
+                      alternative.bgColor
                     } text-center border-b border-gray-200">
-                      ${normalPoint ? normalPoint.mobileValue : ''}
+                      ${alternativePoint ? alternativePoint.mobileValue : ''}
                     </td>
                     <td class="p-3 ${
                       incomeWaves.bgColor
@@ -1501,7 +1530,10 @@
         // Render footer message
         renderFooter() {
           const footer = document.getElementById('comparisonFooter');
-          footer.textContent = comparisonFooter.message;
+          const currentData = comparisonData[this.currentView];
+          if (footer && currentData && currentData.footer) {
+            footer.textContent = currentData.footer.message;
+          }
         }
       }
 
@@ -1572,6 +1604,7 @@
           // Update all views
           updateView(view);
           faqManager.updateView(view);
+          comparisonManager.updateView(view);
           updateMetadata(view);
 
           // Update URL without reloading the page
@@ -1613,9 +1646,13 @@
         posthog.capture('join_waitlist');
       }
 
-      // Expose update function for view changes
+      // Expose update functions for view changes
       window.updateFaqs = function (view) {
         faqManager.updateView(view);
+      };
+
+      window.updateComparison = function (view) {
+        comparisonManager.updateView(view);
       };
     </script>
   </body>
