@@ -252,8 +252,20 @@
         'script',
         'https://connect.facebook.net/en_US/fbevents.js'
       );
+
+      // Check for existing consent
+      const hasConsent = localStorage.getItem('cookieConsent') === 'accepted';
+
+      if (!hasConsent) {
+        fbq('consent', 'revoke');
+      }
+
       fbq('init', '2424270707948114');
       fbq('track', 'PageView');
+
+      if (hasConsent) {
+        fbq('consent', 'grant');
+      }
     </script>
     <noscript
       ><img
@@ -263,6 +275,86 @@
         src="https://www.facebook.com/tr?id=2424270707948114&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Cookie Consent Banner -->
+    <div
+      id="cookieConsent"
+      class="fixed bottom-0 left-0 right-0 bg-deep-navy text-white p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <div class="flex-1">
+          <p class="text-sm">
+            We use cookies and tracking technologies to improve your experience,
+            analyze site traffic, and for marketing purposes.
+            <a href="#" class="underline hover:no-underline">Learn more</a>
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button
+            id="acceptCookies"
+            class="px-6 py-2 bg-white hover:bg-white/80 text-deep-navy rounded-lg font-medium transition-colors"
+          >
+            Accept All
+          </button>
+          <button
+            id="declineCookies"
+            class="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors"
+          >
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Cookie consent functionality
+      function showCookieBanner() {
+        const banner = document.getElementById('cookieConsent');
+        const hasConsent = localStorage.getItem('cookieConsent');
+
+        if (!hasConsent) {
+          setTimeout(() => {
+            banner.classList.remove('translate-y-full');
+          }, 1000); // Show after 1 second
+        }
+      }
+
+      function handleCookieConsent(accepted) {
+        const banner = document.getElementById('cookieConsent');
+        localStorage.setItem(
+          'cookieConsent',
+          accepted ? 'accepted' : 'declined'
+        );
+
+        if (accepted) {
+          fbq('consent', 'grant');
+          posthog.opt_in_capturing();
+        } else {
+          fbq('consent', 'revoke');
+          posthog.opt_out_capturing();
+        }
+
+        banner.classList.add('translate-y-full');
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        showCookieBanner();
+
+        document
+          .getElementById('acceptCookies')
+          .addEventListener('click', () => {
+            handleCookieConsent(true);
+          });
+
+        document
+          .getElementById('declineCookies')
+          .addEventListener('click', () => {
+            handleCookieConsent(false);
+          });
+      });
+    </script>
   </head>
 
   <body class="font-[Poppins] antialiased text-slate-800 tracking-wide">
