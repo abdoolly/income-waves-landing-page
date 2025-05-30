@@ -227,6 +227,7 @@
       });
     </script>
 
+    <script src="api.js"></script>
     <!-- Meta Pixel Code -->
     <script>
       !(function (f, b, e, v, n, t, s) {
@@ -253,18 +254,22 @@
         'https://connect.facebook.net/en_US/fbevents.js'
       );
 
+      fbq('init', '2424270707948114');
+
       // Check for existing consent
       const hasConsent = localStorage.getItem('cookieConsent') === 'accepted';
-
-      if (!hasConsent) {
-        fbq('consent', 'revoke');
-      }
-
-      fbq('init', '2424270707948114');
-      fbq('track', 'PageView');
+      window.hasConsent = hasConsent;
 
       if (hasConsent) {
         fbq('consent', 'grant');
+        const pageViewLocalEventId = `pageview_${Date.now()}_${Math.random()
+          .toString(36)
+          .substring(2, 8)}`;
+
+        fbq('track', 'PageView', { eventID: pageViewLocalEventId });
+        sendPageViewToCAPI(pageViewLocalEventId);
+      } else {
+        fbq('consent', 'revoke');
       }
     </script>
     <noscript
@@ -327,13 +332,16 @@
           'cookieConsent',
           accepted ? 'accepted' : 'declined'
         );
+        window.hasConsent = accepted;
 
         if (accepted) {
           fbq('consent', 'grant');
-          posthog.opt_in_capturing();
+          fbq('track', 'PageView');
+          sendPageViewToCAPI();
+          if (window.posthog) posthog.opt_in_capturing();
         } else {
           fbq('consent', 'revoke');
-          posthog.opt_out_capturing();
+          if (window.posthog) posthog.opt_out_capturing();
         }
 
         banner.classList.add('translate-y-full');
@@ -903,7 +911,6 @@
             marginheight="0"
             marginwidth="0"
             title="Get Early Access"
-            onload="onLoadTallyIframe();"
           >
           </iframe>
         </div>
@@ -1277,10 +1284,6 @@
 
       document.addEventListener('scroll', fadeInOnScroll);
       document.addEventListener('DOMContentLoaded', fadeInOnScroll);
-
-      function onLoadTallyIframe() {
-        document.getElementById('spinner').style.display = 'none';
-      }
     </script>
     <script>
       var d = document,
@@ -1795,25 +1798,38 @@
       };
 
       window.addEventListener('message', (e) => {
+        if (e?.data?.includes && e?.data?.includes('Tally.FormLoaded')) {
+          document.getElementById('spinner').style.display = 'none';
+        }
+
         if (e?.data?.includes && e?.data?.includes('Tally.FormSubmitted')) {
           const payload = JSON.parse(e.data).payload;
           const email = payload.fields.find(
             (field) => field.type === 'INPUT_EMAIL'
           )?.answer.value;
 
-          const userType = payload.fields.find(
+          const sellerOrInvestor = payload.fields.find(
             (field) => field.type === 'MULTIPLE_CHOICE'
           )?.answer.value;
 
           posthog.capture('sign_up', {
             email,
-            userType,
+            sellerOrInvestor,
           });
+
+          const signUpLocalEventId = `signup_${Date.now()}_${Math.random()
+            .toString(36)
+            .substring(2, 8)}`;
 
           fbq('track', 'sign_up', {
             email,
-            userType,
+            sellerOrInvestor,
+            eventID: signUpLocalEventId,
           });
+
+          if (window.hasConsent) {
+            trackSignUp(email, sellerOrInvestor, signUpLocalEventId);
+          }
         }
       });
     </script>
