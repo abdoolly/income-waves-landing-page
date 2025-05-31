@@ -264,7 +264,6 @@
             localStorage.getItem('cookieConsent') === 'accepted';
           window.hasConsent = hasConsent;
 
-          console.log('initializeTracking', hasConsent);
           if (hasConsent) {
             // User already gave consent
             fbq('consent', 'grant');
