@@ -98,8 +98,6 @@ async function shouldShowCookieBanner() {
 async function handleAutoOptIn() {
   const location = await getUserLocation();
 
-  console.log('location', location);
-
   if (!location.isEuOrUs) {
     // Auto opt-in for non-EU/US users
     localStorage.setItem('cookieConsent', 'accepted');
