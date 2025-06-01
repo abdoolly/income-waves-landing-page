@@ -110,7 +110,7 @@ async function handleAutoOptIn() {
         .toString(36)
         .substring(2, 8)}`;
 
-      fbq('track', 'PageView', { eventID: pageViewLocalEventId });
+      fbq('track', 'PageView', {}, { eventID: pageViewLocalEventId });
       sendPageViewToCAPI(pageViewLocalEventId);
     }
 

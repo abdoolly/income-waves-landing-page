@@ -271,7 +271,7 @@
               .toString(36)
               .substring(2, 8)}`;
 
-            fbq('track', 'PageView', { eventID: pageViewLocalEventId });
+            fbq('track', 'PageView', {}, { eventID: pageViewLocalEventId });
             sendPageViewToCAPI(pageViewLocalEventId);
             if (window.posthog) posthog.opt_in_capturing();
           } else {
@@ -388,7 +388,7 @@
           const pageViewLocalEventId = `pageview_${Date.now()}_${Math.random()
             .toString(36)
             .substring(2, 8)}`;
-          fbq('track', 'PageView', { eventID: pageViewLocalEventId });
+          fbq('track', 'PageView', {}, { eventID: pageViewLocalEventId });
           sendPageViewToCAPI(pageViewLocalEventId);
           if (window.posthog) posthog.opt_in_capturing();
         } else {
@@ -1898,11 +1898,15 @@
             .toString(36)
             .substring(2, 8)}`;
 
-          fbq('track', 'sign_up', {
-            email,
-            sellerOrInvestor,
-            eventID: signUpLocalEventId,
-          });
+          fbq(
+            'track',
+            'sign_up',
+            {
+              email,
+              sellerOrInvestor,
+            },
+            { eventID: signUpLocalEventId }
+          );
 
           if (window.hasConsent) {
             trackSignUp(email, sellerOrInvestor, signUpLocalEventId);
