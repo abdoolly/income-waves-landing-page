@@ -148,7 +148,6 @@ async function sendPageViewToCAPI(eventId) {
         fbc,
         fbp,
         eventId,
-        testEventCode: 'TEST8368',
       }),
     });
   } catch (err) {
