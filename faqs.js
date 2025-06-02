@@ -98,6 +98,35 @@ export const investorFaqs = [
 export const sellerFaqs = [
   {
     category: 'funding',
+    question:
+      'Why would I need external funding if my product is already selling well?',
+    answer: `
+      Funding isn’t just for struggling sellers — it’s for smart sellers who want to grow faster without using their own money. Here's why it makes sense:
+      <br /><br />
+      <strong>1. Scale faster:</strong>
+      <br />• You might have a great product, but limited capital means limited stock.
+      <br />• Funding gives you the ability to order more, sell more, and earn more — all at once.
+      <br /><br />
+      <strong>2. Multiply your profits:</strong>
+      <br />• Instead of growing slowly with small reinvestments, funding allows you to tap into much larger returns.
+      <br /><br />
+      <strong>3. No loans, no interest:</strong>
+      <br />• You don’t owe anything upfront.
+      <br />• You simply share a portion of the profits with investors, and keep the rest.
+      <br /><br />
+      <strong>Example:</strong>
+      <br />• You're selling a product with a <strong>30% profit margin</strong>.
+      <br />• If you're using your own <strong>$500</strong>, you make <strong>$150 profit</strong> (total: $650).
+      <br />• If you get <strong>$10,000 in funding</strong>, same product and effort:
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;• You generate <strong>$13,000 in revenue</strong>.
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;• You give investors <strong>15% = $1,500</strong>.
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;• You keep <strong>15% = $1,500</strong> — <strong>10x more profit</strong> than using your own $500.
+      <br /><br />
+      With funding, your same effort and product can deliver significantly higher returns — without risking your own capital.
+    `,
+  },
+  {
+    category: 'funding',
     question: 'How much funding can I get?',
     answer: `Funding amounts are based on your Amazon performance:
       <br /><br />
